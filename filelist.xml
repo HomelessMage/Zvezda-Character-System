@@ -19,13 +19,11 @@
   <Afflictions file="Mods/Zvezda Character System/ITA/Content/ita_afflictions.xml" />
   <Missions file="Mods/Zvezda Character System/ITA/Content/ita_missions.xml" />
   <LevelGenerationParameters file="Mods/Zvezda Character System/ITA/Content/Map/ita_biomes_coldcaverns.xml" />
-  <NPCSets file="Mods/Zvezda Character System/ITA/Content/ita_npcs.xml" />
   <Particles file="Mods/Zvezda Character System/ITA/Content/ita_particles.xml" />
   <RuinConfig file="Mods/Zvezda Character System/ITA/Content/Map/ita_ruinconfig1.xml" />
   <WreckAIConfig file="Mods/Zvezda Character System/ITA/Content/Map/ita_thalamusai.xml" />
   <Decals file="Mods/Zvezda Character System/ITA/Content/ita_decals.xml" />
   <MapGenerationParameters file="Mods/Zvezda Character System/ITA/Content/Map/ita_mapgenerationparameters.xml" />
-  <OutpostConfig file="Mods/Zvezda Character System/ITA/Content/ita_outpostgenerationparameters.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Map/CaveNames.txt" />
   <Character file="Mods/Zvezda Character System/ITA/Content/Characters/Moloch/Moloch.xml" />
   <Character file="Mods/Zvezda Character System/ITA/Content/Characters/Molochblack/Molochblack.xml" />
@@ -182,7 +180,6 @@
   <OutpostModule file="Mods/Zvezda Character System/ITA/Content/Subs/ita_outpost_hab_engineering.sub" />
   <OutpostModule file="Mods/Zvezda Character System/ITA/Content/Subs/ita_outpost_hab_office.sub" />
   <OutpostModule file="Mods/Zvezda Character System/ITA/Content/Subs/ita_outpost_hab_crewquarters2.sub" />
-  <None file="Mods/Zvezda Character System/ITA/Content/ita_oldevents.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAPuzzle1a.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAPuzzle1b.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAPuzzle3a.xml" />
