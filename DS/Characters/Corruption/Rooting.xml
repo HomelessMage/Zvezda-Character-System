@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>  
+  <Item name="Биомасса" identifier="infectnearbiomass" category="Equipment" description="" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.5" hideinmenus="true" pickdistance="0" noninteractable="true" >
+	<sprite name="bloodmist" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inherittexturescale="true" hidelimb="false" hideotherwearables="false" sourcerect="0,0,1,1" origin="0.4,0.3" />
+    <Body width="40" radius="30" density="15" bodytype="Kinematic" />
+    <LightComponent lightcolor="255,10,10,100" range="150" powerconsumption="0" allowingameediting="false" castshadows="false" IsOn="true">
+      <StatusEffect type="Always" target="This">
+          <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="1.5" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="1" scalemax="1.25" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+         <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds1.ogg" />
+         <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds2.ogg" />
+         <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds3.ogg" />
+         <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds4.ogg" />
+         <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds5.ogg" />
+         <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds6.ogg" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="1.5" stackable="false">
+        <Explosion range="90" force="1" flash="false" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="0" underwaterbubble="true" structuredamage="0" itemdamage="25" flashrange="0" flashduration="0">
+          <Affliction identifier="redmarkerinfection" strength="100" />
+		  <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="2" scalemax="2.25" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="6" stackable="false">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="InWater" target="This" stackable="false">
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+    <LightComponent range="0" lightcolor="0,0,0,0" castshadows="true" allowingameediting="false">
+      <StatusEffect type="Always" target="This" setvalue="true" castshadows="false">
+          <Conditional castshadows="true" />
+          <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="2.5" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="2" scalemax="2.25" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+         <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds.ogg" />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+  <Item name="Растущая биомасса" identifier="seedbiods" description="" category="Material" Tags="smallitem,seed,plantitem" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft" spritecolor="255,54,0,255">
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.2" sourcerect="830,636,31,30" origin="0.5,0.5" />
+    <Growable growthspeed="256" pickingtime="25" maximumvines="1500" maxhealth="9999" hardiness="0" floodtolerance="0" seedrate="0" productrate="0.75" flowertint="255,255,255,255" flowerquantity="2" baseflowerscale="0.35" vinescale="0.25" vinetint="255,255,255,255">
+      <ProducedItem identifier="infectnearbiomass" probability="0.95" />
+      <VineSprites vineatlas="Mods/Zvezda Character System/DS/Characters/Corruption/branches.png" decayatlas="Mods/Zvezda Character System/DS/Characters/Corruption/branches.png">
+        <LeafSprite texture="Mods/Zvezda Character System/DS/Characters/Corruption/GrowablePlants_Temp.png" sourcerect="87,110,298,229" />
+        <LeafSprite texture="Mods/Zvezda Character System/DS/Characters/Corruption/GrowablePlants_Temp.png" sourcerect="446,118,300,322" />
+        <FlowerSprite name="shroomflower1" texture="Mods/Zvezda Character System/DS/Characters/Corruption/GrowablePlants_Temp.png" sourcerect="29,40,64,69" origin="0.5,0.5" />
+        <FlowerSprite name="shroomflower2" texture="Mods/Zvezda Character System/DS/Characters/Corruption/GrowablePlants_Temp.png" sourcerect="548,39,61,59" origin="0.5,0.5" />
+        <VineSprite type="Stem" sourcerect="640,128,128,128" />
+        <VineSprite type="CrossJunction" sourcerect="512,128,128,128" />
+        <VineSprite type="VerticalLane" sourcerect="512,0,128,128" />
+        <VineSprite type="HorizontalLane" sourcerect="640,0,128,128" />
+        <VineSprite type="TurnTopRight" sourcerect="0,0,128,128" />
+        <VineSprite type="TurnTopLeft" sourcerect="384,0,128,128" />
+        <VineSprite type="TurnBottomLeft" sourcerect="256,0,128,128" />
+        <VineSprite type="TurnBottomRight" sourcerect="128,0,128,128" />
+        <VineSprite type="TSectionTop" sourcerect="128,128,128,128" />
+        <VineSprite type="TSectionLeft" sourcerect="256,128,128,128" />
+        <VineSprite type="TSectionBottom" sourcerect="384,128,128,128" />
+        <VineSprite type="TSectionRight" sourcerect="0,128,128,128" />
+        <VineSprite type="StumpTop" sourcerect="768,0,128,128" />
+        <VineSprite type="StumpLeft" sourcerect="896,0,128,128" />
+        <VineSprite type="StumpBottom" sourcerect="768,128,128,128" />
+        <VineSprite type="StumpRight" sourcerect="896,128,128,128" />
+      </VineSprites>
+    </Growable>
+    <Body radius="15" density="12" bodytype="Kinematic"/>
+  </Item>
+  
+  <Item name="Корень биомассы" identifier="rootbiomass" description="" category="Material" Tags="planter,mediumitem" scale="0.5" isshootable="true">
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="1,1,1,1" depth="0.75" premultiplyalpha="false" origin="0.5,0.5" />
+    <Body width="95" height="106" density="40" />
+    <ItemContainer capacity="1" hideitems="true" drawinventory="false" uilabel="" allowuioverlap="true" allowdraganddrop="false" showcontainedstateindicator="false">
+      <Containable items="seedbiods" />
+    </ItemContainer>
+    <Planter selectkey="Select" canbepicked="False" pickingtime="3.0" msg="ItemMsgPlantSeed">
+      <PlantSlot slot="0" offset="0,0" size="0.25" />
+      <SuitableSeed items="seedbiods" />
+      <StatusEffect type="Always" target="This" setvalue="true" wateramount="100.0"/>
+      <StatusEffect type="OnFire" targettype="This" delay="5" disabledeltatime="true">
+        <Remove/>
+      </StatusEffect>
+    </Planter> 
+    <LightComponent range="0" lightcolor="0,0,0,0" castshadows="true" allowingameediting="false">
+      <StatusEffect type="Always" target="This" setvalue="true" castshadows="false">
+        <Conditional castshadows="true" />
+        <SpawnItem spawnposition="ThisInventory" identifier="seedbiods" amount="1" />
+      </StatusEffect>  
+    </LightComponent>
+  </Item>
+
+		
+</Items>

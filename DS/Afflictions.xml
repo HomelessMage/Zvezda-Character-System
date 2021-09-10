@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+  <AfflictionHusk
+    name="Некроз"
+    identifier="necroinfection"
+    description="Вам с трудом получается думать о чем-либо. Вам хочется начать разрывать свое тело на части."
+    type="huskinfection"
+    targets="human"
+    huskedspeciesname="slasher"
+    causeofdeathdescription="Погиб от некроза тканей."
+    selfcauseofdeathdescription="Вы погибли от некроза тканей."
+    limbspecific="false"
+    indicatorlimb="Torso"
+    activationthreshold="0"
+    showiconthreshold="40"    
+    karmachangeonapplied="-1"
+    maxstrength="100"
+    achievementonremoved="healhusk"
+    iconcolors="255,0,0,255;255,0,0,255;255,0,0,255">
+    <Effect minstrength="0" maxstrength="100"
+      minvitalitydecrease="1"
+      maxvitalitydecrease="2"
+      strengthchange="0.3"/>
+      <PeriodicEffect mininterval="2" maxinterval="5">
+        <StatusEffect target="Character" comparison="and">
+          <Conditional isdead="false" />
+          <Conditional necroinfection="eq 100.0" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Enhanced Slasher/death1.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Enhanced Slasher/death2.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Enhanced Slasher/death3.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Enhanced Slasher/death4.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Enhanced Slasher/death5.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Enhanced Slasher/death6.ogg" range="1000" volume="1" selectionmode="Random" />
+          <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <ParticleEmitter particle="fleshsmoke" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <Affliction identifier="internaldamage" amount="3" />
+        </StatusEffect>
+      </PeriodicEffect>
+    <PeriodicEffect mininterval="100" maxinterval="200">
+      <StatusEffect target="Character" duration="30" onlyinside="true">
+        <Conditional IsLocalPlayer="True"/>
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion1.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion2.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion3.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion4.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion5.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion6.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion7.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion8.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion9.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion10.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion11.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion12.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion13.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion14.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion15.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion16.ogg" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="Mods/Zvezda Character System/DS/Content/UI/MainIconsAtlas.png" sourcerect="0,640,128,128" color="255,0,0,255" origin="0,0"/>
+  </AfflictionHusk>
+
+  <AfflictionHusk
+    name="Психоматическое заражение"
+    identifier="redmarkerinfection"
+    description="Вам с трудом получается думать о чем-либо. Вам хочется начать разрывать свое тело на части."
+    type="huskinfection"
+    targets="human"
+    huskedspeciesname="slasher"
+    causeofdeathdescription="Погиб от некроза тканей."
+    selfcauseofdeathdescription="Вы погибли от некроза тканей."
+    limbspecific="false"
+    indicatorlimb="Torso"
+    activationthreshold="0"
+    showiconthreshold="40"    
+    karmachangeonapplied="-1"
+    maxstrength="100"
+    achievementonremoved="healhusk"
+    iconcolors="255,0,0,255;255,0,0,255;255,0,0,255">
+	  <StatusEffect target="Character" targetlimb="Head" SpeedMultiplier="1.1" HealthMultiplier="1.5" setvalue="true" conditional="or">
+		  <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="1.5" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+		  <sound file="Mods/Zvezda Character System/DS/Content/Items/Alien/whispers.ogg" type="OnActive" range="3000" loop="true" />
+      </StatusEffect>
+	  <Effect minstrength="0" maxstrength="80"
+			minvitalitydecrease="0"
+			maxvitalitydecrease="0"
+		    sound="" file="Mods/Zvezda Character System/DS/Content/Items/Alien/whispers.ogg" type="OnActive" range="3000" loop="true"
+			strengthchange="2"/>
+	  <Effect minstrength="80" maxstrength="100" strengthchange="0" />
+    <icon texture="Mods/Zvezda Character System/DS/Content/UI/MainIconsAtlas.png" sourcerect="0,640,128,128" color="255,0,0,255" origin="0,0"/>
+  </AfflictionHusk>
+
+  <AfflictionHusk
+    name="Некроз"
+    identifier="division"
+    description="Вам с трудом получается думать о чем-либо. Вам хочется начать разрывать свое тело на части."
+    type="huskinfection"
+    targets="human"
+    huskedspeciesname="humandivider"
+    causeofdeathdescription="Погиб от некроза тканей."
+    selfcauseofdeathdescription="Вы погибли от некроза тканей."
+    limbspecific="false"
+    indicatorlimb="Torso"
+    activationthreshold="0"
+    showiconthreshold="40"    
+    karmachangeonapplied="-1"
+    maxstrength="100"
+    achievementonremoved="healhusk"
+    iconcolors="255,0,0,255;255,0,0,255;255,0,0,255">
+    <Effect minstrength="0" maxstrength="100"
+      minvitalitydecrease="1"
+      maxvitalitydecrease="2"
+      strengthchange="0.3"/>
+      <PeriodicEffect mininterval="2" maxinterval="5">
+        <StatusEffect target="Character" comparison="and">
+          <Conditional isdead="false" />
+          <Conditional division="eq 100.0" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Divider/division1.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Divider/division2.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Divider/division3.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Divider/division4.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Divider/division5.ogg" range="1000" volume="1" selectionmode="Random" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Divider/division6.ogg" range="1000" volume="1" selectionmode="Random" />
+          <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <ParticleEmitter particle="fleshsmoke" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+          <Affliction identifier="internaldamage" amount="3" />
+        </StatusEffect>
+      </PeriodicEffect>
+      <PeriodicEffect mininterval="2" maxinterval="5">
+        <StatusEffect target="Character" comparison="and">
+          <Conditional isdead="false" />
+          <Conditional division="eq 100.0" />
+          <sound file="Mods/Zvezda Character System/DS/Characters/Divider/divheadtakeover.ogg" range="1000" volume="1"/>
+       </StatusEffect>
+      </PeriodicEffect>
+    <PeriodicEffect mininterval="100" maxinterval="200">
+      <StatusEffect target="Character" duration="30" onlyinside="true">
+        <Conditional IsLocalPlayer="True"/>
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion1.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion2.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion3.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion4.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion5.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion6.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion7.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion8.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion9.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion10.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion11.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion12.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion13.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion14.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion15.ogg" />
+        <Sound file="Mods/Zvezda Character System/DS/Content/Sounds/Delusions/delusion16.ogg" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="Mods/Zvezda Character System/DS/Content/UI/MainIconsAtlas.png" sourcerect="0,640,128,128" color="255,0,0,255" origin="0,0"/>
+  </AfflictionHusk>
+</Afflictions>

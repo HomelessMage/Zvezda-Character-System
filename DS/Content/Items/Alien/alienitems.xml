@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Items>
+   <Item name="Обелиск" identifier="redmarker" category="Alien" Tags="alien,alienartifact" sonarsize="30" scale="0.5" impactsoundtag="impact_metal_heavy">
+      <Upgrade gameversion="0.9.3.1" scale="0.5" />
+      <Deconstruct time="120">
+         <Item identifier="redmarkerdead" />
+      </Deconstruct>
+      <Sprite texture="Mods/Zvezda Character System/DS/Content/Items/Alien/AlienArtifact1.png" sourcerect="0,0,170,416" depth="0.3" origin="0.5,0.5" />
+      <Body radius="150" density="50" friction="0.95" />
+
+      <Holdable slots="RightHand+LeftHand" holdpos="30,-15" handle1="0,10" handle2="0,-10" msg="ItemMsgPickUpSelect">
+         <StatusEffect type="Always" target="NearbyCharacters" range="250">
+            <Affliction identifier="psychosis" strength="5" />
+         </StatusEffect>
+         <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="necroinfection" strength="5" />
+         </StatusEffect>
+         <sound file="Mods/Zvezda Character System/DS/Content/Items/Alien/whispers.ogg" type="OnActive" range="3000" loop="true" />
+         <StatusEffect type="Always" target="NearbyCharacters" range="250">
+            <Affliction identifier="watchersgaze" strength="10" />
+         </StatusEffect>
+         ======corruption======
+         <StatusEffect type="OnProduceSpawned" target="This" stackable="False" comparison="and" duration="0.1">
+            <SpawnItem identifier="largeinfectoreggpr" spawnposition="This" amount="1" />
+            <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds.ogg" />
+            <SpawnCharacter speciesname="divider" count="5" spread="10" />
+         </StatusEffect>
+         <StatusEffect type="OnProduceSpawned" target="This" stackable="False" comparison="and" duration="0.1" delay="300">
+            <SpawnItem identifier="largeinfectoreggpr" spawnposition="This" amount="1" />
+            <Sound file="Mods/Zvezda Character System/DS/Characters/Corruption/TheCorruptionSounds.ogg" />
+         </StatusEffect>
+      </Holdable>
+   </Item>
+   <Item name="Обелиск (разрушенный)" identifier="redmarkerdead" category="Alien" Tags="alien,alienartifact" sonarsize="30" scale="0.5" impactsoundtag="impact_metal_heavy">
+      <Upgrade gameversion="0.9.3.1" scale="0.5" />
+      <Sprite texture="Mods/Zvezda Character System/DS/Content/Items/Alien/AlienArtifact1.png" sourcerect="0,0,170,416" depth="0.3" origin="0.5,0.5" />
+      <Body radius="150" density="50" friction="0.95" />
+      <Holdable slots="RightHand+LeftHand" holdpos="30,-15" handle1="0,10" handle2="0,-10" msg="ItemMsgPickUpSelect">
+         <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="psychosis" strength="5" />
+         </StatusEffect>
+         <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="necroinfection" strength="5" />
+         </StatusEffect>
+         <sound file="Mods/Zvezda Character System/DS/Content/Items/Alien/whispers.ogg" type="OnActive" range="3000" loop="true" />
+         <StatusEffect type="OnDeconstruct" target="This" Condition="-100.0" disabledeltatime="true">
+            <Explosion range="10000.0" structuredamage="10000" force="500.0" severlimbsprobability="1.0" decal="explosion" decalsize="1.0" camerashake="1" camerashakerange="1" flashrange="10000" flashduration="10.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="3.0">
+               <Affliction identifier="burn" strength="500" />
+               <Affliction identifier="radiationsickness" strength="100" />
+               <Affliction identifier="internaldamage" strength="400" />
+               <Affliction identifier="stun" strength="5" />
+            </Explosion>
+            <SpawnItem identifier="nuclearaftereffectemitter" spawnposition="This" />
+            <Remove />
+         </StatusEffect>
+      </Holdable>
+   </Item>
+</Items>

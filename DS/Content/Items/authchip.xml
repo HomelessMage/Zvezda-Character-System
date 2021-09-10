@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item name="Карта допуска" identifier="authchip" category="Equipment" Tags="smallitem" cargocontaineridentifier="metalcrate">
+  <InventoryIcon texture="Mods/Zvezda Character System/DS/Content/Items/InventoryIconAtlas.png" sourcerect="192,64,64,64" origin="0.5,0.5" />
+  <Sprite texture="Mods/Zvezda Character System/DS/Content/Items/authchip.png" depth="0.8" sourcerect="0,0,16,16" />
+  <Body width="16" height="16" density="20" />
+  <Pickable slots="Card,Any" msg="ItemMsgPickUpSelect" />
+</Item>

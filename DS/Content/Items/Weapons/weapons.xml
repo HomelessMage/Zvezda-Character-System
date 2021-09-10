@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Некротические яйца" identifier="necroticeggs" category="Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.3">
+    <PreferredContainer primary="toxcontainer" spawnprobability="0.0"/>
+    <PreferredContainer primary="locker"/>
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="3000" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="90">
+      <RequiredSkill identifier="medical" level="20" />
+      <RequiredItem identifier="antibloodloss2" count="1" />
+      <RequiredItem identifier="huskeggs" count="2" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="huskeggs" copycondition="true" mincondition="0.1" />
+      <Item identifier="necroblood" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+    <InventoryIcon texture="Mods/Zvezda Character System/DS/Content/Items/InventoryIconAtlas.png" sourcerect="832,448,64,64" origin="0.5,0.5" />
+    <Sprite texture="Mods/Zvezda Character System/DS/Content/Items/Medical/Medicines.png" sourcerect="435,0,62,115" depth="0.6" origin="0.5,0.5" />
+    <Body width="62" height="115" density="20" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="Character" setvalue="true" Isdead="false">
+        <Conditional IsDead="true" />
+        <ReduceAffliction identifier="damage" strength="1000" />
+        <ReduceAffliction identifier="bloodloss" strength="1000" />
+        <Affliction identifier="necroinfection" strength="10000" />
+        <Affliction identifier="stun" strength="10" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+    <Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="true" launchrotation="-90">
+      <StatusEffect type="OnImpact" target="This" Condition="-100.0" disabledeltatime="true">
+        <Sound file="Content/Sounds/Damage/Gore1.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="poison" type="OnImpact" target="Character" setvalue="true" Isdead="false">
+        <Conditional IsDead="true" />
+        <ReduceAffliction identifier="damage" strength="1000" />
+        <ReduceAffliction identifier="bloodloss" strength="1000" />
+        <Affliction identifier="necroinfection" strength="10000" />
+        <Affliction identifier="stun" strength="10" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+
+  <Item name="Некротическая кровь" identifier="necroblood" category="Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.3">
+    <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
+    <PreferredContainer primary="locker"/>
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="1200" />
+    <InventoryIcon texture="Mods/Zvezda Character System/DS/Content/Items/InventoryIconAtlas.png" sourcerect="897,449,63,63" origin="0.5,0.5" />
+    <Sprite texture="Mods/Zvezda Character System/DS/Content/Items/Medical/Medicines.png" sourcerect="372,122,62,115" depth="0.6" origin="0.5,0.5" />
+    <Body width="62" height="115" density="20" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <StatusEffect type="OnUse" target="This" Condition="-50.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="Character">
+        <!-- HuskInfectionState must be less than 0.01 so you can't speed up the infection -->
+        <Conditional necroinfection="lt 0.01" />
+        <Affliction identifier="necroinfection" amount="0.01" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+</Items>

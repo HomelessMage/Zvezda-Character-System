@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+	<!--exposure-->
+	<Override>
+		<Affliction name="Nuclear Waste Exposure" identifier="exposure" description="You've been exposed to nuclear material." type="buff" causeofdeathdescription="Died to overexposure to nuclear material." selfcauseofdeathdescription="Died to overexposure to nuclear material." limbspecific="false" indicatorlimb="Torso" maxstrength="100" damageoverlayalpha="1">
+			<Effect minstrength="0" maxstrength="50" strengthchange="-8">
+				<StatusEffect target="Character">
+					<Affliction identifier="burn" amount="0.1" />
+				</StatusEffect>
+			</Effect>
+			<Effect minstrength="51" maxstrength="100" strengthchange="-20">
+				<StatusEffect target="Character">
+					<Affliction identifier="radiationsickness" amount="1" />
+					<Affliction identifier="organdamage" amount="1" />
+				</StatusEffect>
+			</Effect>
+			<icon texture="Mods/Zvezda Character System/ITA/Content/Sprites/icons_ita.png" sourcerect="0,424,128,128" color="195,136,60,255" origin="0,0"/>
+		</Affliction>
+	</Override>
+	<!--treatment-->
+	<Override>
+		<Affliction name="Treatment" identifier="heal1" description="Good quality treatment at outpost" type="damage" causeofdeathdescription="Burned to death" selfcauseofdeathdescription="You have burned to death." limbspecific="false" maxstrength="100">
+			<Effect minstrength="0" maxstrength="100" strengthchange="-50">
+				<StatusEffect target="Character" disabledeltatime="true">
+					<ReduceAffliction identifier="damage" strength="100" />
+					<ReduceAffliction identifier="burn" strength="100" />
+					<ReduceAffliction identifier="poison" strength="100" />
+					<ReduceAffliction identifier="bleeding" strength="100" />
+					<ReduceAffliction identifier="oxygenlow" strength="100" />
+					<ReduceAffliction identifier="bloodloss" strength="100" />
+					<ReduceAffliction identifier="huskinfection" strength="100" />
+					<ReduceAffliction identifier="paralysis" strength="100" />
+					<ReduceAffliction identifier="nausea" strength="100" />
+				</StatusEffect>
+			</Effect>
+			<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,896,128,128" color="10,193,114,255" origin="0,0"/>
+		</Affliction>
+	</Override>
+	<!--well fed-->
+	<Override>
+
+		<Affliction name="Well fed" identifier="heal2" description="Good food warms you up all the way to the heart.[PHYS REGEN UP]" type="nourishment" causeofdeathdescription="Ate too much." selfcauseofdeathdescription="You ate too much." limbspecific="false" maxstrength="100">
+			<Effect minstrength="0" maxstrength="100" strengthchange="-1">
+				<StatusEffect target="Character" disabledeltatime="false" stackable="false">
+					<ReduceAffliction identifier="damage" strength="0.35" />
+					<ReduceAffliction identifier="bleeding" strength="0.35" />
+					<ReduceAffliction identifier="bloodloss" strength="0.35" />
+					<ReduceAffliction identifier="nausea" strength="0.35" />
+				</StatusEffect>
+			</Effect>
+			<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,896,128,128" origin="0,0" color="0,136,0,255" />
+		</Affliction>
+	</Override>
+	<!--well rested-->
+	<Override>
+
+		<Affliction name="Well rested" identifier="heal3" description="Warm bed in properly ventilated outpost does wonders to your body.[PHYS REGEN UP]" type="nourishment" causeofdeathdescription="Rested too much" selfcauseofdeathdescription="RIP" 	isbuff="true" limbspecific="false" maxstrength="100">
+			<Effect minstrength="0" maxstrength="100" strengthchange="-50">
+				<StatusEffect target="Character" disabledeltatime="false" stackable="false">
+					<ReduceAffliction identifier="damage" strength="0.2" />
+					<ReduceAffliction identifier="bleeding" strength="0.2" />
+					<ReduceAffliction identifier="bloodloss" strength="0.2" />
+					<ReduceAffliction identifier="nausea" strength="0.2" />
+				</StatusEffect>
+			</Effect>
+			<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,896,128,128" color="10,193,114,255" origin="0,0"/>
+		</Affliction>
+	</Override>
+	<!--well relaxed-->
+	<Override>
+		<!--well relaxed-->
+		<Affliction name="Well relaxed" identifier="heal4" description="Drinking in company of relatively sane people at the outpost makes you forget about the horrors of the Sea a little.[PSYC RESISTANCE UP][PSYC REGEN UP]" type="resistance" 	isbuff="true" limbspecific="false" maxstrength="100">
+			<Effect minstrength="0" maxstrength="100" strengthchange="-0.027" resistancefor="psychosis" minresistance="0.5" maxresistance="0.5">
+				<StatusEffect target="Character" disabledeltatime="false" stackable="false">
+					<ReduceAffliction identifier="psychosis" strength="-0.1" />
+				</StatusEffect>
+			</Effect>
+			<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,896,128,128" color="10,193,114,255" origin="0,0"/>
+		</Affliction>
+	</Override>
+	<!--blue burns-->
+	<Override>
+		<!--blue burns-->
+		<Affliction name="Blue burns" identifier="ancientburn" description="Burns, dark blue blisters and rotten skin." type="burn" causeofdeathdescription="Burned to death" selfcauseofdeathdescription="You have burned to death." limbspecific="false" maxstrength="100" burnoverlayalpha="1">
+			<Effect minstrength="0" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="10000"/>
+			<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="768,640,128,128" color="195,104,60,255" origin="0,0"/>
+		</Affliction>
+	</Override>
+</Afflictions>
