@@ -2,7 +2,7 @@
 <Override>
 <Character speciesname="Human" humanoid="true" hasinfo="true" usehuskappendage="true" needsair="true" genders="true" canspeak="true" blooddecal="blood" noise="150" visibility="150">
 
-  <name firstname="Mods/Zvezda Character System/Characters/Human/firstnames_male.txt" lastname="Mods/Zvezda Character System/Characters/Human/lastnames.txt" />
+  <name firstname="Mods/Zvezda Character System/Characters/Human/firstnames.txt" lastname="Mods/Zvezda Character System/Characters/Human/lastnames.txt" />
   <portraitbackground>
     <sprite name="Human Portrait Background" texture="Content/Characters/Human/mugshotCircle.png" origin="0,0.05"/>
   </portraitbackground>
@@ -85,7 +85,7 @@
     </Limb>
   </health>
 
-  <inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any"/>
+  <inventory arrowslot="2" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any"/>
 
   <Heads>
     <Head race="asian" gender="female" id="1" sheetindex="0,0"/>
