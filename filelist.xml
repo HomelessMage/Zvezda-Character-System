@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Zvezda Character System" path="Mods/Zvezda Character System/filelist.xml" corepackage="false" gameversion="0.14.9.1" steamworkshopid="2582164490" installtime="1631302440">
+<contentpackage name="Zvezda Character System" path="Mods/Zvezda Character System/filelist.xml" corepackage="false" gameversion="0.14.9.1" steamworkshopid="2582164490" installtime="1631383899">
   <UIStyle file="Mods/Zvezda Character System/Menu/UI/bw_style.xml" />
   <None file="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" />
   <None file="Mods/Zvezda Character System/Menu/bw Main Menu Music.ogg" />
