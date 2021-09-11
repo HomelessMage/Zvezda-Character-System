@@ -66,6 +66,73 @@
       <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
       <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
    </Item>
+
+
+
+
+
+
+
+
+<Override>
+  <Item name="" identifier="wateringcan" category="Equipment" Tags="smallitem,tool" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="896,0,128,128" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="896,0,128,128" depth="0.55" origin="0.5,0.5" />
+    <Price baseprice="80" >
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="1.2" minavailable="1" />
+      <Price locationtype="research" multiplier="0.9" minavailable="2" />
+      <Price locationtype="military" multiplier="1.2" sold="false" />
+      <Price locationtype="mine" multiplier="0.75" sold="false" />
+    </Price>
+    <PreferredContainer primary="storagecab" minamount="0" maxamount="1" spawnprobability="0.125" />
+    <PreferredContainer primary="crewcab" minamount="0" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="1" spawnprobability="0.125" />
+    <Body width="121" height="96" density="40" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="35">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+      <Fabricate suitablefabricators="kitchen" requiredtime="10">
+         <RequiredItem identifier="wateringcan" mincondition="0.0" usecondition="false" />
+      </Fabricate>    
+    <Deconstruct time="20">
+      <Item identifier="steel" copycondition="true" mincondition="0.1" />
+      <Item identifier="plastic" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+    <Holdable slots="Any,RightHand+LeftHand" aimpos="60,0" holdangle="45" handle1="-50,20" handle2="-30,62" msg="ItemMsgPickUpSelect">
+         <StatusEffect type="OnUse" target="This" Condition="-0.1" disabledeltatime="true" />
+   </Holdable>
+    <RepairTool wateramount="10.0" range="0" barrelpos="24,21" targetstructures="false" hititems="false">
+      <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="0.0" particlespersecond="50" />
+    </RepairTool>
+  </Item>
+</Override>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    <Item name="Фляжка с водой" identifier="canteen" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,equipment,waterbottle" impacttolerance="8" description="Фляжка наполненная фильтрованной водой. Ее можно наполнить в балласте или из крана кухонной плиты." useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
       <SuitableTreatment identifier="thirst" suitability="100" />
       <Fabricate suitablefabricators="kitchen" requiredtime="10">

@@ -340,7 +340,7 @@
   <None file="Mods/Zvezda Character System/Characters/Ragehuman/Animations/RagehumanWalk.xml" />
   <None file="Mods/Zvezda Character System/Characters/Ragehuman/Ragdolls/RagehumanDefaultRagdoll.xml" />
   <None file="Mods/Zvezda Character System/Characters/Human/lastnames.txt" />
-  <None file="Mods/Zvezda Character System/Characters/Human/firstnames_male.txt" />
+  <None file="Mods/Zvezda Character System/Characters/Human/firstnames.txt" />
   <SkillSettings file="Mods/Zvezda Character System/SkillSetttings.xml" />
   <Character file="Mods/Zvezda Character System/DS/Characters/Slasher/Slasher.xml" />
   <None file="Mods/Zvezda Character System/DS/Characters/Slasher/die1.ogg" />

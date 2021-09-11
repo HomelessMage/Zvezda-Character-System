@@ -26,7 +26,7 @@
 
     <Symbol texture="Content/Map/MapAtlas.png" sourcerect="384,512,128,128" color="128,206,175,255"/>
     <RadiationSymbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
-    <Portrait texture="Content/Map/LocationPortraits/Colony.png" premultiplyalpha="false"/>
+    <Portrait texture="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" premultiplyalpha="false"/>
 
     <Hireable identifier="assistant" commonness="10"/>
     <Hireable identifier="engineer" commonness="3"/>
@@ -46,7 +46,7 @@
     outpostteam="None">
 
     <Symbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
-    <Portrait texture="Content/Map/LocationPortraits/HabitationOutpost.png" premultiplyalpha="false"/>
+    <Portrait texture="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" premultiplyalpha="false"/>
 	
 	 <ChangeTo type="Outpost" disallowedadjacentlocations="Lair" probability="1.0" messagetag="locationchange.none.changeto.outpost" locationtypechangecooldown="0" requirediscovered="true">
       <!-- multiply probability by 0 if next to hunting grounds-->
@@ -62,7 +62,7 @@
     beaconstationchance="0.5">
 
     <Symbol texture="Content/Map/MapAtlas.png" sourcerect="640,640,128,128" color="128,206,175,255" />
-    <Portrait texture="Content/Map/LocationPortraits/NaturalFormations.png" premultiplyalpha="false"/>
+    <Portrait texture="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" premultiplyalpha="false"/>
     
     <ChangeTo type="Outpost" disallowedadjacentlocations="Lair" messagetag="locationchange.none.changeto.outpost" locationtypechangecooldown="2">
       <!-- May be settled if within 3 steps of a colony, with an increasing chance should it be within 2 or less steps -->
@@ -83,7 +83,7 @@
     commonnessperzone="2: 1.0, 3: 0.6">
 
     <Symbol texture="Content/Map/MapAtlas.png" sourcerect="256,512,128,128" color="128,206,175,255"/>
-    <Portrait texture="Content/Map/LocationPortraits/HabitationOutpost.png" premultiplyalpha="false"/>
+    <Portrait texture="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" premultiplyalpha="false"/>
     
     <Hireable identifier="assistant" commonness="10"/>
     <Hireable identifier="engineer" commonness="3"/>
@@ -122,10 +122,7 @@
 
 <Cave identifier="Cave" namefile="Mods/Zvezda Character System/ITA/Content/Map/CaveNames.txt" commonnessperzone="1: 0.6, 2: 0.6, 5:0.6" missiontags="drycave1">
 		<Symbol texture="Mods/Zvezda Character System/ITA/Content/Sprites/MapAtlas.png" sourcerect="497,916,123,108" color="176,133,113,255"/>
-		<Portrait texture="Content/Map/LocationPortraits/WorkCampMining1.png" premultiplyalpha="false"/>
-		<Portrait texture="Content/Map/LocationPortraits/WorkCampMining2.png" premultiplyalpha="false"/>
-		<Portrait texture="Content/Map/LocationPortraits/WorkCampMining3.png" premultiplyalpha="false"/>
-		<Portrait texture="Content/Map/LocationPortraits/WorkCampMining4.png" premultiplyalpha="false"/>
+    <Portrait texture="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" premultiplyalpha="false"/>
 		<ChangeTo type="Mine" messagetag="locationchange.cave.changeto.mine" locationtypechangecooldown="0" requirediscovered="true">
 			<Requirement requiredlocations="Outpost,City,Military,Research,Mine" requiredproximity="1"/>
 		</ChangeTo>
@@ -163,9 +160,7 @@
 
     <Symbol texture="Content/Map/MapAtlas.png" sourcerect="512,512,128,128" color="128,206,175,255"/>
     <RadiationSymbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
-    <Portrait texture="Content/Map/LocationPortraits/WorkCampResearchFacility1.png" premultiplyalpha="false"/>
-    <Portrait texture="Content/Map/LocationPortraits/WorkCampResearchFacility2.png" premultiplyalpha="false"/>
-    <Portrait texture="Content/Map/LocationPortraits/WorkCampResearchFacility3.png" premultiplyalpha="false"/>
+    <Portrait texture="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" premultiplyalpha="false"/>
 
     <Hireable identifier="engineer" commonness="5"/>
     <Hireable identifier="mechanic" commonness="5"/>
@@ -191,10 +186,7 @@
 
     <Symbol texture="Content/Map/MapAtlas.png" sourcerect="256,640,128,128" color="128,206,175,255"/>
     <RadiationSymbol texture="Content/Map/MapAtlas.png" sourcerect="896,512,128,128" color="245,105,105"/>
-    <Portrait texture="Content/Map/LocationPortraits/WorkCampMining1.png" premultiplyalpha="false"/>
-    <Portrait texture="Content/Map/LocationPortraits/WorkCampMining2.png" premultiplyalpha="false"/>
-    <Portrait texture="Content/Map/LocationPortraits/WorkCampMining3.png" premultiplyalpha="false"/>
-    <Portrait texture="Content/Map/LocationPortraits/WorkCampMining4.png" premultiplyalpha="false"/>
+    <Portrait texture="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" premultiplyalpha="false"/>
     
     <Hireable identifier="engineer" commonness="5"/>
     <Hireable identifier="mechanic" commonness="5"/>
@@ -215,7 +207,7 @@
     commonnessperzone="1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 1"
     hasoutpost="false">
     <Symbol texture="Content/Map/MapAtlas.png" sourcerect="521,648,110,110" color="245,105,105"/>
-    <Portrait texture="Content/Map/LocationPortraits/NaturalFormations.png" premultiplyalpha="false"/>
+    <Portrait texture="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" premultiplyalpha="false"/>
   </EndLocation>
   
   
