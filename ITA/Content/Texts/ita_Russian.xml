@@ -605,9 +605,12 @@
 	<entitydescription.ita_crawyum>Лучше зажать нос и побыстрей проглотить.</entitydescription.ita_crawyum>
 	
 	<!--Contests-->
-	<entityname.ita_race_ticket1>Красный талон</entityname.ita_race_ticket1>
-	<entityname.ita_race_ticket2>Зеленый талон</entityname.ita_race_ticket2>
-	<entityname.ita_race_ticket3>Синий талон</entityname.ita_race_ticket3>
+	<entityname.ita_race_ticket1>РОХ</entityname.ita_race_ticket1>
+	<entitydescription.ita_race_ticket1>Это документ удостоверящий владельца в праве хранения травматического оружия. Выдается комендантом.</entitydescription.ita_race_ticket1>
+	<entityname.ita_race_ticket2>Справка по форме № 002-О/у</entityname.ita_race_ticket2>
+	<entitydescription.ita_race_ticket2>Медицинское заключение об отсутствии медицинских противопоказаний к владению оружием. Выдается главврачом.</entitydescription.ita_race_ticket2>
+	<entityname.ita_race_ticket3>Справка по форме № 001-О/у</entityname.ita_race_ticket3>
+	<entitydescription.ita_race_ticket3>Заключение о прохождении курса по обращению с огнестрельным травматическим оружием. Выдается милиционером.</entitydescription.ita_race_ticket3>
 
 	<!--Clothes-->
 	<entityname.ita_hazmat1>Костюм противорадиационной защиты</entityname.ita_hazmat1>
