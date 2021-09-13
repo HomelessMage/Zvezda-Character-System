@@ -2,9 +2,9 @@
 <Override>
 <EventManagerSettings>
   <Easy
-    DefaultEventThreshold="1.0"
+    DefaultEventThreshold="0"
     EventThresholdIncrease="0"
-    EventCooldown="1.0"
+    EventCooldown="0"
     MinLevelDifficulty="0.0"
     MaxLevelDifficulty="100.0"/>
 </EventManagerSettings>
