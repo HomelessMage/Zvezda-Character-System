@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Zvezda Character System" path="Mods/Zvezda Character System/filelist.xml" corepackage="false" gameversion="0.14.9.1" steamworkshopid="2582164490" installtime="1631725566">
+<contentpackage name="Zvezda Character System" path="Mods/Zvezda Character System/filelist.xml" corepackage="false" gameversion="0.14.9.1" steamworkshopid="2582164490" installtime="1632406049">
   <UIStyle file="Mods/Zvezda Character System/Menu/UI/bw_style.xml" />
   <None file="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" />
   <None file="Mods/Zvezda Character System/Menu/bw Main Menu Music.ogg" />
@@ -225,10 +225,8 @@
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_eventsprites.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_hazmat.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_headgears.png" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_jovianarmoricon.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_missionicon_watch.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_missionitems.png" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_prosthetic_engineer_torso_male_3.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_spritesoutpost.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_sprites_alien.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_sprites_campaign.png" />
