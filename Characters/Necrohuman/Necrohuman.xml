@@ -1,5 +1,5 @@
 ﻿<Character speciesname="Necrohuman" displayname="Functional Necrotic" husk="True" humanoid="True" hasinfo="True" usehuskappendage="False" needsair="True" genders="true" canspeak="True" blooddecal="blackblood" group="husk" needswater="False" noise="100" visibility="100" bleedparticleair="blackblood" bleedparticlewater="blackwaterblood" eatingspeed="10" pathfinderpriority="1" hideinsonar="False" speciestranslationoverride="" sonardisruption="0">
-  <ragdolls path="Mods/Zombies/Characters/Necrohuman/Ragdolls/NecrohumanDefaultRagdoll.xml" />
+  <ragdolls path="Mods/Zvezda Character System/Characters/Necrohuman/Ragdolls/NecrohumanDefaultRagdoll.xml" />
   <animations folder="default" />
   <huskappendage affliction="zombiereanimation" path="Content/Characters/Humanhusk/Huskappendage.xml" />
   <bloodemitter particle="blackblood" particleamount="5" anglemin="0" anglemax="0" scalemin="1" scalemax="1" velocitymin="0" velocitymax="0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
@@ -39,7 +39,7 @@
       <VitalityMultiplier type="damage" multiplier="0.5" />
     </Limb>
   </health>
-  <name firstname="Content/Characters/Human/firstnames_[GENDER].txt" lastname="Content/Characters/Human/lastnames.txt" />
+  <name firstname="Mods/Zvezda Character System/Characters/Human/firstnames.txt" lastname="Mods/Zvezda Character System/Characters/Human/lastnames.txt" />
   <ai combatstrength="40" sight="1" hearing="1" aggressiveboarding="True" attackwhenprovoked="True" aggressiongreed="5" aggressionhurt="150" infiltrate="True" targetouterwalls="False" fleehealththreshold="0" avoidgunfire="True" avoidtime="3" minfleetime="20" enforceaggressivebehaviorformissions="True" randomattack="False" avoidabyss="True" stayinabyss="True" startaggression="0" maxaggression="100" aggressioncumulation="0">
     <target tag="dead" state="Attack" priority="200" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreifnotinsamesub="False" ignoreincapacitated="False" damagethreshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
     <target tag="FN_Headsevered" state="Idle" priority="555" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreifnotinsamesub="False" ignoreincapacitated="False" damagethreshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
@@ -50,8 +50,7 @@
     <target tag="sonar" state="Attack" priority="30" reactdistance="0" ignoreinside="True" attackdistance="0" timer="0" ignorecontained="False" ignoreoutside="False" ignoreifnotinsamesub="False" ignoreincapacitated="False" damagethreshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
     <target tag="room" state="Attack" priority="10" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreifnotinsamesub="False" ignoreincapacitated="False" damagethreshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
     <target tag="turret" state="Attack" priority="1" ignoreinside="True" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreoutside="False" ignoreifnotinsamesub="False" ignoreincapacitated="False" damagethreshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
-  </ai>
-  <inventory slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any" accessiblewhenalive="True" commonness="1" />
+  </ai> 
   <StatusEffect type="OnActive" target="This" targetlimb="Head" checkconditionalalways="true" stackable="false" disabledeltatime="true" comparison="and">
     <Affliction identifier="organdamage" amount="0.01" />
     <Conditonal recentbite="eq 0" />

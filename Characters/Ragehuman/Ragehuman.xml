@@ -1,5 +1,5 @@
 <Character speciesname="Ragehuman" displayname="" husk="True" humanoid="True" hasinfo="True" usehuskappendage="False" needsair="True" genders="true" canspeak="True" blooddecal="blackblood" group="human" needswater="False" noise="100" visibility="100" bleedparticleair="blackblood" bleedparticlewater="blackwaterblood" eatingspeed="10" pathfinderpriority="1" hideinsonar="False" speciestranslationoverride="" sonardisruption="0">
-  <ragdolls path="Mods/Zombies/Characters/Ragehuman/Ragdolls/RagehumanDefaultRagdoll.xml" />
+  <ragdolls path="Mods/Zvezda Character System/Characters/Ragehuman/Ragdolls/RagehumanDefaultRagdoll.xml" />
   <animations folder="default" />
   <huskappendage affliction="ragevirus" path="Content/Characters/Humanhusk/Huskappendage.xml" />
   <bloodemitter particle="blackblood" particleamount="5" anglemin="0" anglemax="0" scalemin="1" scalemax="1" velocitymin="0" velocitymax="0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
@@ -39,7 +39,7 @@
       <VitalityMultiplier type="damage" multiplier="0.5" />
     </Limb>
   </health>
-  <name firstname="Content/Characters/Human/firstnames_[GENDER].txt" lastname="Content/Characters/Human/lastnames.txt" />
+  <name firstname="Mods/Zvezda Character System/Characters/Human/firstnames.txt" lastname="Mods/Zvezda Character System/Characters/Human/lastnames.txt" />
   <ai combatstrength="100" sight="0.5" hearing="1.6000001" aggressiveboarding="True" attackwhenprovoked="True" aggressionhurt="100" aggressiongreed="10" fleehealththreshold="0" avoidgunfire="True" enforceaggressivebehaviorformissions="True" targetinnerwalls="False" randomattack="False" targetouterwalls="True" avoidtime="3" minfleetime="20">
     <target tag="decoy" state="Attack" priority="500" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" />
     <target tag="provocative" state="Attack" priority="100" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" />
@@ -53,7 +53,7 @@
     <target tag="room" state="Attack" priority="20" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" />
     <target tag="turret" state="Attack" priority="1" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" />
   </ai>
-  <inventory slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any" accessiblewhenalive="True" commonness="1" />
+  <inventory slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any" accessiblewhenalive="True" commonness="1" />
   <StatusEffect type="OnActive" target="Character" delay="0.5" checkconditionalalways="true" stackable="True" comparison="and">
     <Conditional isdead="False" />
     <Conditional zombiereanimation="eq 0" />
