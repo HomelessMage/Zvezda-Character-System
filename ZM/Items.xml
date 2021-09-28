@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+<!--Autonomous alarm which will activate when a blowout is imminent.-->
+  <Item name="Blowout Alarm" identifier="fn_blowoutalarm" description="An alarm that should be placed alongside Europan Surface Radiation. It will sound off whenever a blowout is imminent." category="Electrical" Tags="smallitem,sound" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" pickdistance="0" noninteractable="true">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,127,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="75,133,42,57" origin="0.5,0.5" />
+    <Body radius="20" density="20" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench" type="Equipped" />
+    </Holdable>
+    <LightComponent canbeselected="false" lightcolor="255,0,0,100" castshadows="false" blinkfrequency="2.6" range="20">
+      <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="301,963,42,57" origin="0.5,0.5" alpha="1.0"/>
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/blowout/Call of Pripyat/blowout_siren.ogg" type="OnActive" range="10000.0" loop="True" volume="0.5" />
+        <!--60 seconds after ambient phase begins, begin alarm sounds
+        This will cause it to begin playing right in time for impact.-->
+      <StatusEffect type="Always" target="This" delay="60" setvalue="True" checkconditionalalways="True" IsActive="True" stackable="false" >
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <!--When the blowout siren sound ends, set condition to zero and deactivate the alarm.-->
+      <StatusEffect type="Always" target="This" delay="53" comparison="And" checkconditionalalways="True" setvalue="True" condition="0" IsActive="False" stackable="false" >
+        <Conditional IsActive="True" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+
+<!--Spawns fodder zombies (always know player location, very weak, easy to kill) and plays the Left 4 Dead horde alert sound, followed by horde music. 
+If the track ends and there are still horde zombies alive, spawn another wave of them.-->
+  <Item name="Fodder Spawner, Tier 1" identifier="fn_hordetrigger1" description="This will spawn a small (6) group of fodder zombies." category="Electrical" Tags="smallitem,sound" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" pickdistance="0" noninteractable="true">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Body radius="20" density="20" bodytype="Kinematic" />
+    <LightComponent canbeselected="false" lightcolor="0,0,0,0" castshadows="false" range="0">
+      <!--<StatusEffect type="Always" target="This" stackable="false" setvalue="true" condition="50" >
+        <Conditional condition="gt 50" />
+      </StatusEffect>-->
+      <StatusEffect type="Always" target="This" stackable="false" setvalue="true" delay="5" condition="100" >
+        <Conditional condition="lte 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" comparison="And" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/megamobincoming.ogg" range="10000.0" volume="0.25" />
+        <Conditional condition="lte 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="2.5" stackable="false" >
+        <SpawnCharacter speciesname="Hordehuman" count="3" spread="13" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="1" stackable="false" >
+        <SpawnCharacter speciesname="Hordehuman" count="2" spread="13" />
+        <Conditional condition="eq 49" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" setvalue="True" checkconditionalalways="True" condition="0" delay="240" >
+        <Conditional condition="eq 100" />
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+
+  <Item name="Fodder Spawner, Tier 2" identifier="fn_hordetrigger2" description="This will spawn a medium (10) group of fodder zombies." category="Electrical" Tags="smallitem,sound" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" pickdistance="0" noninteractable="true">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Body radius="20" density="20" bodytype="Kinematic" />
+    <LightComponent canbeselected="false" lightcolor="0,0,0,0" castshadows="false" range="0">
+      <!--<StatusEffect type="Always" target="This" stackable="false" setvalue="true" condition="50" >
+        <Conditional condition="gt 50" />
+      </StatusEffect>-->
+      <StatusEffect type="Always" target="This" stackable="false" setvalue="true" delay="5" condition="100" >
+        <Conditional condition="lte 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/megamobincoming.ogg" range="10000.0" volume="0.35" />
+        <Conditional condition="lte 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="1" stackable="false" >
+        <SpawnCharacter speciesname="Hordehuman" count="2" spread="13" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="1" stackable="false" >
+        <SpawnCharacter speciesname="Hordehuman" count="3" spread="13" />
+        <Conditional condition="eq 49" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" setvalue="True" checkconditionalalways="True" condition="0" delay="240" >
+        <Conditional condition="eq 100" />
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+
+  <Item name="Fodder Spawner, Tier 3" identifier="fn_hordetrigger3" description="This will spawn a large (15) group of fodder zombies." category="Electrical" Tags="smallitem,sound" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" pickdistance="0" noninteractable="true">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Body radius="20" density="20" bodytype="Kinematic" />
+    <LightComponent canbeselected="false" lightcolor="0,0,0,0" castshadows="false" range="0">
+      <!--<StatusEffect type="Always" target="This" stackable="false" setvalue="true" condition="50" >
+        <Conditional condition="gt 50" />
+      </StatusEffect>-->
+      <StatusEffect type="Always" target="This" stackable="false" setvalue="true" delay="5" condition="100" >
+        <Conditional condition="lte 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/megamobincoming.ogg" range="10000.0" volume="0.5" />
+        <Conditional condition="lte 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="1" stackable="false" >
+        <SpawnCharacter speciesname="Hordehuman" count="3" spread="13" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="0.5" stackable="false" >
+        <SpawnCharacter speciesname="Hordehuman" count="2" spread="13" />
+        <Conditional condition="eq 49" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" setvalue="True" checkconditionalalways="True" condition="0" delay="240" >
+        <Conditional condition="eq 100" />
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+
+  <Item name="Fodder Spawner, Mega Mob" identifier="fn_hordetrigger4" description="This will spawn a massive (~20) group of fodder zombies. USE WITH CAUTION! LAG LIKELY!" category="Electrical" Tags="smallitem,sound" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" pickdistance="0" noninteractable="true">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Body radius="20" density="20" bodytype="Kinematic" />
+    <LightComponent canbeselected="false" lightcolor="0,0,0,0" castshadows="false" range="0">
+      <!--<StatusEffect type="Always" target="This" stackable="false" setvalue="true" condition="50" >
+        <Conditional condition="gt 50" />
+      </StatusEffect>-->
+      <StatusEffect type="Always" target="This" stackable="false" setvalue="true" delay="5" condition="100" >
+        <Conditional condition="lte 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/megamobincoming.ogg" dontmuffle="True" range="10000.0" volume="0.75" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="0.5" stackable="false" >
+        <SpawnCharacter speciesname="Hordehuman" count="2" spread="13" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" setvalue="True" checkconditionalalways="True" condition="0" delay="5" >
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+
+<!--Spent waaay too long on this shit, I hope you like it-->
+  <Item name="Europan Surface Radiation" identifier="fn_surfaceradiation" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.5" description="When placed at the top of a map, this simulates Europan Surface Radiation, alongside periodic blowout sequences which have the potential to zombify people if they die during one. Avoiding a blowout sequence is simple: get inside." pickdistance="0" noninteractable="true">
+    <sprite name="rad" texture="Content/Items/Jobgear/headgears.png" sourcerect="0,0,1,1" origin="0.4,0.3" />
+    <Body width="40" radius="30" density="15" bodytype="Kinematic" />
+    <LightComponent lightcolor="255,255,150,0" range="1" powerconsumption="0" allowingameediting="false" castshadows="false" IsOn="true">
+    <!--Every 0.5 seconds, produce a massive-ranged explosion with barely any force that gives a small amount of an affliction
+    This affliction checks for thalassophobia radiation suits or pressure protection, and if neither are present radiation sickness is applied
+    Explosions have weakened effects past doors and walls, allowing indoor areas to be safe from radiation.-->
+      <StatusEffect type="Always" target="This" delay="0.5" stackable="false">
+        <Explosion range="10000" force="0.1" flash="false" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="0" underwaterbubble="true" structuredamage="0" itemdamage="0" flashrange="0" flashduration="0">
+          <Affliction identifier="fn_radcheck" strength="5" />
+        </Explosion>
+      </StatusEffect>
+      <!--BLOWOUT STUFF START-->
+      <!--Reduce condition of all active emitters and blowout alarms to 50 every 15 minutes 
+      Other statuseffects check for this condition value
+      Only run if condition is greater than 50-->
+      <StatusEffect type="Always" target="NearbyItems, This" targetidentifiers="fn_blowoutalarm, fn_surfaceradiation" range="10000" delay="900" setvalue="true" condition="50" stackable="false" >
+        <Conditional condition="gt 50" />
+      </StatusEffect>
+      <!--2 minutes after condition is reduced and blowout ambience announces imminent doom, reduce condition to 2
+      Other statuseffects check for this condition value-->
+      <StatusEffect type="Always" target="This" delay="120" setvalue="true" condition="2" stackable="false" >
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <!--30 seconds after a blowout sequence ends, set condition to 1 and play spooky ambience as the menacing sounds slowly fall silent-->
+      <StatusEffect type="Always" target="This" delay="30" setvalue="true" condition="1" stackable="false" >
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <!--Reset emitter to full condition, next blowout in 15 minutes-->
+      <StatusEffect type="Always" target="This" delay="70" setvalue="true" condition="100" stackable="false" >
+        <Conditional condition="eq 1" />
+      </StatusEffect>
+      <!--Ambient sounds to announce imminent danger when condition is 50-->
+      <StatusEffect type="Always" target="This" delay="17" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient1.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient2.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient3.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient4.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient5.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <!--Spookier sounds that happen less frequently when condition is 50-->
+      <StatusEffect type="Always" target="This" delay="27" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/announce1.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/announce2.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <!--Sound that plays just before a blowout impacts-->
+      <StatusEffect type="Always" target="This" delay="113" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/prehit.ogg" range="10000" volume="10" dontmuffle="True" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <!--Sound that plays when a blowout sequence ends-->
+      <StatusEffect type="Always" target="This" delay="4" setvalue="true" condition="1" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/posthit.ogg" range="10000" volume="10" dontmuffle="True" />
+        <Conditional condition="eq 4" />
+      </StatusEffect>
+      <!--Impact sound-->
+      <StatusEffect type="Always" target="This" delay="0.5" setvalue="true" condition="0" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/start.ogg" range="10000" volume="10" dontmuffle="True" />
+        <Conditional condition="eq 2" />
+        <Explosion range="10000" force="0.1" flash="false" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="143" underwaterbubble="true" structuredamage="0" itemdamage="0" flashrange="10000" flashduration="1">
+          <Affliction identifier="stun" strength="0.1" />
+        </Explosion>
+      </StatusEffect>
+      <!--Apply affliction to everyone within 1000 meters or so, for the spooky visual effects-->
+      <StatusEffect type="Always" target="NearbyCharacters, This" range="10000" disabledeltatime="true" stackable="false" >
+        <Affliction identifier="fn_blowoutimpact" amount="1000" />
+        <Conditional condition="eq 2" />
+      </StatusEffect>
+      <!--Buildup sound that increases in intensity after a blowout hits-->
+      <StatusEffect type="Always" target="This" delay="2" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/buildup.ogg" range="10000" volume="10" dontmuffle="True" />
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <!--Applies stun and affliction to all people within ~1000 meters
+      As long as the person is not outside, they will not gain the vitality check affliction and survive scot-free-->
+      <StatusEffect type="Always" target="NearbyCharacters, This" range="10000" delay="2.5" >
+        <Affliction identifier="stun" amount="5" />
+        <Affliction identifier="fn_blowoutsurvive" amount="10000" />
+        <ReduceAffliction identifier="fn_blowout" amount="10000" />
+        <Conditional condition="eq 4" />
+      </StatusEffect>
+      <!--Applies an affliction after condition is 50, which slowly applies visual effects to give the idea that something bad is about to happen.-->
+      <StatusEffect type="Always" target="NearbyCharacters, This" range="10000" >
+        <Affliction identifier="fn_blowout" amount="1.1" />
+        <Conditional condition="eq 50" />
+      </StatusEffect>
+      <!--Psi-wave sound which sets condition to 4-->
+      <StatusEffect type="Always" target="This" delay="17" setvalue="true" condition="4" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/end.ogg" range="10000" volume="10" dontmuffle="True" />
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <!--Anyone outside gets severe burns, if these burns land them in crit they will die on the spot and eventually get back up-->
+      <StatusEffect type="Always" target="This" delay="2.5" duration="3" stackable="false" >
+        <Explosion range="10000" force="0.1" flash="false" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="125" underwaterbubble="true" structuredamage="0" itemdamage="0" flashrange="10000" flashduration="1.5">
+          <Affliction identifier="fn_blowoutcheck" strength="5" />
+        </Explosion>
+        <Conditional condition="eq 4" />
+      </StatusEffect>
+      <!--Visual effects that sync up with lightning sounds-->
+      <StatusEffect type="Always" target="NearbyCharacters, This" delay="6" disabledeltatime="true" range="10000" stackable="false" >
+          <Affliction identifier="fn_blowoutlightning" amount="50" />
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters, This" delay="7" disabledeltatime="true" range="10000" stackable="false" >
+          <Affliction identifier="fn_blowoutlightning" amount="50" />
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters, This" delay="9" disabledeltatime="true" range="10000" stackable="false" >
+          <Affliction identifier="fn_blowoutlightning" amount="50" />
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <!--Lightning sounds that sync up with visual effects-->
+      <StatusEffect type="Always" target="This" delay="6" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit1.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit2.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit3.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Conditional condition="eq 0" />
+        <Explosion range="10000" force="0.1" flash="false" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="3" underwaterbubble="true" structuredamage="0" itemdamage="0" flashrange="10000" flashduration="0.5">
+          <Affliction identifier="stun" strength="0.1" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="9" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit1.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit2.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit3.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Conditional condition="eq 0" />
+        <Explosion range="10000" force="0.1" flash="false" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="3" underwaterbubble="true" structuredamage="0" itemdamage="0" flashrange="10000" flashduration="0.5">
+          <Affliction identifier="stun" strength="0.1" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="7" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit1.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit2.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/hit3.ogg" range="10000" volume="10" dontmuffle="True" selectionmode="Random" />
+        <Conditional condition="eq 0" />
+        <Explosion range="10000" force="0.1" flash="false" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="3" underwaterbubble="true" structuredamage="0" itemdamage="0" flashrange="10000" flashduration="0.5">
+          <Affliction identifier="stun" strength="0.1" />
+        </Explosion>
+      </StatusEffect>
+      <!--Ambient sound effects which play after a blowout ends-->
+      <StatusEffect type="Always" target="This" delay="13" stackable="false" >
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient1.ogg" range="10000" volume="0.5" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient2.ogg" range="10000" volume="0.5" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient3.ogg" range="10000" volume="0.5" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient4.ogg" range="10000" volume="0.5" dontmuffle="True" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Blowout/ambient5.ogg" range="10000" volume="0.5" dontmuffle="True" selectionmode="Random" />
+        <Conditional condition="eq 1" />
+      </StatusEffect>
+      <!--Emitter will eventually reset its condition and a new blowout happens 15 minutes later.-->
+    </LightComponent>
+  </Item>
+  <Item name="headexplode" identifier="fn_headexplode" Scale="1" tags="" sonarsize="0" hideinmenus="true" impacttolerance="0.001" health="0.1">
+    <Body radius="100" density="10" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This" condition="-1" />
+      <!-- Play multiple sounds, randomly chosen each time apart from the final skull crunching sound. -->
+      <StatusEffect type="OnBroken" target="This">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="25" scalemin="0.5" scalemax="1.0" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="5" scalemin="0.5" scalemax="1.0" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/bone_break_neck_snap_crack_01.ogg" range="5000" volume="0.25" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/bone_break_neck_snap_crack_02.ogg" range="5000" volume="0.25" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/bone_break_neck_snap_crack_03.ogg" range="5000" volume="0.25" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/bone_break_neck_snap_crack_04.ogg" range="5000" volume="0.25" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="25" scalemin="0.5" scalemax="1.0" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="5" scalemin="0.5" scalemax="1.0" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/WoodBat-1.ogg" range="5000" volume="0.5" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/WoodBat-2.ogg" range="5000" volume="0.5" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/WoodBat-3.ogg" range="5000" volume="0.5" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/WoodBat-4.ogg" range="5000" volume="0.5" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/WoodBat-5.ogg" range="5000" volume="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="25" scalemin="0.5" scalemax="1.0" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="5" scalemin="0.5" scalemax="1.0" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/BodyHit-4.ogg" range="5000" volume="0.25" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/BodyHit-5.ogg" range="5000" volume="0.25" />
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/BodyHit-6.ogg" range="5000" volume="0.25" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" delay="0.05">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/Gore/HammerSkullPenetrate.ogg" range="10000" volume="2" />
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item><!--Horde activator, will activate horde when spawned
+  wired version soon(tm)-->
+  <Item name="Horde Activator, Phase 1" identifier="fn_hordephase1" tags="" sonarsize="0" scale="0.5" drawontop="True" hideinmenus="true" impacttolerance="0.001" health="0.1">
+    <Body radius="100" density="10" bodytype="Kinematic" />
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/Telegraph/telegraph.png" sourcerect="0,0,1,1" depth="0" origin="0.5,1" />
+    <LightComponent lightcolor="255,255,255,0" castshadows="false" allowingameediting="false" range="0" ison="False">
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/Telegraph/telegraph.png" sourcerect="0,0,1,1" depth="0" origin="0.5,1" />
+      <StatusEffect type="Always" target="This" setvalue="True" delay="0.15" condition="0" />
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyItems" delay="0.1" range="10000" targetidentifiers="fn_hordetrigger1,fn_hordetrigger2,fn_hordetrigger3,fn_hordetrigger4" setvalue="True" condition="50" stackable="False" checkconditionalalways="True" />
+    </LightComponent>
+  </Item><!--Horde wave 2 stuff-->
+  <Item name="Horde Activator, Phase 2" identifier="fn_hordephase2" tags="" sonarsize="0" scale="0.5" drawontop="True" hideinmenus="true" impacttolerance="0.001" health="0.1">
+    <Body radius="100" density="10" bodytype="Kinematic" />
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/Telegraph/telegraph.png" sourcerect="0,0,1,1" depth="0" origin="0.5,1" />
+    <LightComponent lightcolor="255,255,255,0" castshadows="false" allowingameediting="false" range="0" ison="False">
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/Telegraph/telegraph.png" sourcerect="0,0,1,1" depth="0" origin="0.5,1" />
+      <StatusEffect type="Always" target="This" setvalue="True" delay="0.15" condition="0" />
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyItems" delay="0.1" range="10000" targetidentifiers="fn_hordetrigger1,fn_hordetrigger2,fn_hordetrigger3,fn_hordetrigger4" setvalue="True" condition="49" stackable="False" checkconditionalalways="True" />
+    </LightComponent>
+  </Item>
+  <!--Telegraph stuff-->
+  <Item name="shamblertelegraph" identifier="fn_telegraph" tags="" sonarsize="0" scale="0.5" drawontop="True" hideinmenus="true" impacttolerance="0.001" health="0.1">
+    <Body radius="100" density="10" bodytype="Kinematic" />
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/Telegraph/telegraph.png" sourcerect="0,0,512,112" depth="0.05" origin="0.5,1" />
+    <LightComponent lightcolor="255,255,255,255" castshadows="false" allowingameediting="false" range="0" ison="True">
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/Telegraph/telegraph.png" sourcerect="0,0,512,112" depth="0" origin="0.5,1" />
+      <StatusEffect type="Always" target="This" setvalue="True" delay="3" condition="-1" />
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+  <!--The most common treatment for functional necrosis
+  Only borrowed time, unfortunately.-->
+  <Item name="«Фаланкс»" identifier="phalanxpills" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.2" impactsoundtag="impact_metal_light">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="medcab" minamount="3" maxamount="5" spawnprobability="1" />
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer primary="outpostmedcompartment" minamount="0" maxamount="1" spawnprobability="0.25" />
+    <Price baseprice="250">
+      <Price locationtype="outpost" multiplier="1" minavailable="3" />
+      <Price locationtype="city" multiplier="0.9" minavailable="3" />
+      <Price locationtype="research" multiplier="0.9" minavailable="5" />
+      <Price locationtype="military" multiplier="1.1" minavailable="3" />
+      <Price locationtype="mine" multiplier="1.1" minavailable="3" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="30" amount="3">
+      <RequiredSkill identifier="medical" level="25" />
+      <RequiredItem identifier="antibiotics" />
+      <RequiredItem identifier="stabilozine" />
+      <RequiredItem identifier="stabilozine" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="45" amount="2">
+      <RequiredSkill identifier="medical" level="35" />
+      <RequiredItem identifier="antibiotics" />
+      <RequiredItem identifier="stabilozine" />
+      <RequiredItem identifier="stabilozine" />
+      <RequiredItem identifier="stabilozine" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="antibiotics" copycondition="true" mincondition="0.1" />
+      <Item identifier="stabilozine" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+    <!--Bots will use it as a treatment, will show up as treatment in the health menu-->
+    <SuitableTreatment identifier="fn_functionalnecrosis" suitability="80" />
+    <InventoryIcon texture="Mods/Zvezda Character System/ZM/Textures/phalanxpillsinventory.png" sourcerect="0,0,256,256" origin="0.5,0.5" />
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/phalanxpills.png" sourcerect="0,0,256,256" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="70" density="20" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <!--Reduce condition immediately and play pill sounds, but only do so if borrowed time is not already present-->
+      <StatusEffect type="OnUse" target="Character, This" Condition="-100.0" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/pills_swallow1.ogg" range="500" />
+        <Conditional functionalnecrosisresistance="eq 0" targetself="false" />
+      </StatusEffect>
+      <!--After pill sound finishes playing, effects begin and necrosis is suppressed
+      Only give effects if borrowed time is not present and infection is between stage 2 and stage 4.-->
+      <StatusEffect tags="medical,calyxanide" type="OnUse" delay="2" target="Character" comparison="And" disabledeltatime="true" setvalue="true">
+        <Conditional incurablefunctionalnecrosis="eq 0" />
+        <Conditional fn_functionalnecrosis="gt 5.0" />
+        <Conditional functionalnecrosisresistance="eq 0" />
+        <Affliction identifier="functionalnecrosisresistance" amount="121" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This" delay="2">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
+  <!--The de facto cure for functional necrosis. Unfortunately does not last forever.-->
+  <Item name="Генотерапия" identifier="genetherapy" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.15" impactsoundtag="impact_metal_light">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="medcab" minamount="0" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer primary="outpostmedcompartment" minamount="0" maxamount="1" spawnprobability="0.25" />
+    <Price baseprice="250">
+      <Price locationtype="outpost" multiplier="1" minavailable="3" />
+      <Price locationtype="city" multiplier="0.9" minavailable="3" />
+      <Price locationtype="research" multiplier="0.9" minavailable="5" />
+      <Price locationtype="military" multiplier="1.1" minavailable="3" />
+      <Price locationtype="mine" multiplier="1.1" minavailable="3" />
+    </Price>
+    <Deconstruct time="20">
+      <Item identifier="phalanxpills" copycondition="true" mincondition="0.1" />
+      <Item identifier="deusizine" copycondition="true" mincondition="0.1" />
+      <Item identifier="stabilozine" copycondition="true" mincondition="0.1" />
+      <Item identifier="liquidoxygenite" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+    <SuitableTreatment identifier="fn_functionalnecrosis" suitability="40" />
+    <InventoryIcon texture="Mods/Zvezda Character System/ZM/Textures/genetherapyinventory.png" sourcerect="0,0,256,256" origin="0.5,0.5" />
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/genetherapy.png" sourcerect="105,5,46,248" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="70" density="20" />
+    <MeleeWeapon canBeCombined="false" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <!--Sound effect that plays after the effects of gene therapy kick in.-->
+      <StatusEffect type="OnUse" target="This" delay="1.2" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/surv_player_heal.ogg" volume="0.5" range="500" />
+      </StatusEffect>
+      <!--Sounds timed just right to sound as though someone is removing the cap, injecting the syringe, and letting go-->
+      <StatusEffect type="OnUse" target="This" condition="-100" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_cap_remove_01.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.7" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_inject_01.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.8" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_click_01.ogg" range="500" />
+      </StatusEffect>
+      <!--Slightly heal most afflictions, and greatly heal poisoning.
+      Cure functional necrosis, give the negative side effects, and give a lot of stun.-->
+      <StatusEffect tags="medical" type="OnUse" target="Character" comparison="And" delay="1.1" duration="0.1" disabledeltatime="False">
+        <ReduceAffliction identifier="damage" amount="5" />
+        <ReduceAffliction identifier="bleeding" amount="5" />
+        <ReduceAffliction identifier="bloodloss" amount="5" />
+        <ReduceAffliction identifier="morbusinepoisoning" amount="50" />
+        <ReduceAffliction identifier="sufforinpoisoning" amount="50" />
+        <ReduceAffliction identifier="cyanidepoisoning" amount="50" />
+        <ReduceAffliction identifier="oxygenlow" amount="50" />
+        <ReduceAffliction identifier="fn_functionalnecrosis" amount="1000" />
+        <ReduceAffliction identifier="incurablefunctionalnecrosis" amount="1000" />
+        <Affliction identifier="stabilizersickness" amount="1000" probability="0.6" />
+        <Affliction identifier="progressivestun" amount="300" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This" delay="1.2">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
+<!--Might be OP
+Kickstarts regeneration and undoes oxygen loss.
+After effects wear off, a damaging 'crash' side effect occurs.
+Crashing causes organ damage and nausea, as well as a stun.-->
+  <Item name="Атропин" identifier="fn_atropine" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="Раствор адреналина, атропина и физраствора, способный в крайнем случае вывести человека из критического состояния. Уменьшает кровопотерю, устраняет потерю кислорода и ускоряет регенерацию. Эффективен для удаления токсинов из кровотока при двукратном применении у одного и того же пациента. Осталось 2 использования." useinhealthinterface="true" scale="0.15" impactsoundtag="impact_metal_light">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="medcab" minamount="1" maxamount="4" spawnprobability="1" />
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer primary="outpostmedcompartment" minamount="0" maxamount="1" spawnprobability="0.25" />
+    <Price baseprice="250">
+      <Price locationtype="outpost" multiplier="1" minavailable="3" />
+      <Price locationtype="city" multiplier="0.9" minavailable="3" />
+      <Price locationtype="research" multiplier="0.9" minavailable="5" />
+      <Price locationtype="military" multiplier="1.1" minavailable="3" />
+      <Price locationtype="mine" multiplier="1.1" minavailable="3" />
+    </Price>
+    <Deconstruct time="20">
+      <Item identifier="adrenaline" copycondition="true" mincondition="0.1" />
+      <Item identifier="antibloodloss1" copycondition="true" mincondition="0.1" />
+      <Item identifier="stabilozine" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+    <SuitableTreatment identifier="damage" suitability="40" />
+    <SuitableTreatment identifier="bloodloss" suitability="40" />
+    <SuitableTreatment identifier="nausea" suitability="40" />
+    <SuitableTreatment identifier="oxygenlow" suitability="500" />
+    <InventoryIcon texture="Mods/Zvezda Character System/ZM/Textures/atropineinventory.png" sourcerect="0,0,256,256" origin="0.5,0.5" />
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/genetherapy.png" sourcerect="105,5,46,248" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="70" density="20" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <!--Sounds timed just right to sound as though someone is removing the cap, injecting the syringe, and letting go-->
+      <StatusEffect type="OnUse" target="This" condition="-50" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_cap_remove_01.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.7" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_inject_01.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.8" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_click_01.ogg" range="500" />
+      </StatusEffect>
+      <!--Gives enough of the adrenaline rush affliction to max out the affliction after 1.1 seconds to match up with the above sounds. 
+      Reduces blood loss and low oxygen by large amounts, at the cost of severe organ damage later.-->
+      <StatusEffect tags="medical" type="OnUse" target="Character" delay="1.1" comparison="And" disabledeltatime="true">
+        <Affliction identifier="fn_adrenaline" amount="600" />
+        <ReduceAffliction identifier="oxygenlow" amount="150" />
+        <ReduceAffliction identifier="bloodloss" amount="25" />
+      </StatusEffect>
+      <!--Overdose effect, if adrenaline rush is already present give organ damage, buffs, and purge poisons from the bloodstream-->
+      <StatusEffect tags="medical" type="OnUse" target="Character" comparison="And" delay="1.1" disabledeltatime="true">
+        <Conditional fn_adrenaline="gt 5" />
+        <Affliction identifier="organdamage" amount="15" />
+        <Affliction identifier="paralysisresistance" amount="25" />
+        <Affliction identifier="huskinfectionresistance" amount="25" />
+        <Affliction identifier="strengthen" amount="25" />
+        <ReduceAffliction identifier="oxygenlow" amount="150" />
+        <ReduceAffliction identifier="poison" amount="65" />
+        <ReduceAffliction identifier="bloodloss" amount="25" />
+      </StatusEffect>
+      <!--Checks for functional necrosis, if it is present then store a variable with OriginalOutpost-->
+      <StatusEffect type="OnUse" target="Character, This" setvalue="false" OriginalOutpost="infected" stackable="false" delay="0.7" disabledeltatime="true" >
+        <Conditional fn_functionalnecrosis="gt 0" />
+      </StatusEffect>
+      <!--Give functional necrosis to next person injected if it finds the variable set by the above statuseffect-->
+      <StatusEffect type="OnUse" target="Character, This" delay="0.7" >
+        <Conditional OriginalOutpost="infected" />
+        <Affliction identifier="fn_functionalnecrosis" amount="0.5" />
+      </StatusEffect>
+      <!--Change description to show that there is one use remaining-->
+      <StatusEffect type="OnUse" target="This" setvalue="True" description="A solution of epinephrine, atropine, and saline, capable of bringing someone out of a critical state in a pinch. Reduces blood loss, cures oxygen loss, and kickstarts regeneration. Effective in purging toxins from the bloodstream if used twice on the same patient. Has 1 use remaining." comparison="And" />
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This" delay="1.2">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <Item name="Образец функционального некроза" identifier="fn_necrosissample" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,poison" description="Спроектированный вирус, вызывающий необъяснимое кровотечение, тошноту, деформацию лица и, в конечном итоге, отслоение височной, теменной и лобной долей. Пациенты, прошедшие это состояние, неизлечимы и очень враждебны." useinhealthinterface="true" scale="0.2" impactsoundtag="impact_metal_light">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="toxinscab" minamount="0" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer primary="outpostmedcompartment" minamount="0" maxamount="1" spawnprobability="0.25" />
+    <Deconstruct time="20">
+      <Item identifier="deliriumine" copycondition="true" mincondition="0.1" />
+      <Item identifier="huskeggs" copycondition="true" mincondition="0.1" />
+      <Item identifier="hallucinogenicbufotoxin" copycondition="true" mincondition="0.1" />
+      <Item identifier="morbusine" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+    <InventoryIcon texture="Mods/Zvezda Character System/ZM/Textures/necrosissampleinventory.png" sourcerect="0,0,256,256" origin="0.5,0.5" />
+    <Sprite texture="Mods/Zvezda Character System/ZM/Textures/genetherapy.png" sourcerect="105,5,46,248" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="70" density="20" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="This" condition="-100" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_cap_remove_01.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.7" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_inject_01.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.8" disabledeltatime="true">
+        <Sound file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/genetherapy_click_01.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="poison" type="OnUse" target="Character" delay="1.1" comparison="And">
+        <Affliction identifier="fn_functionalnecrosis" amount="0.1" />
+      </StatusEffect>
+      <!-- Remove the item when used -->
+      <StatusEffect type="OnBroken" target="This" delay="1.15">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!--A reference
+  Can save you from critical condition up to 3 times
+  Has a cooldown, in the form of the gene therapy affliction.-->
+  <Item name="Берет Героя" identifier="fn_billhat" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" scale="0.4">
+    <PreferredContainer primary="crewcab" minamount="0" maxamount="1" spawnprobability="0.025" />
+    <Price baseprice="1000">
+      <Price locationtype="military" multiplier="1" minavailable="1" />
+    </Price>
+    <Deconstruct time="10" />
+    <Sprite name="Bill's Hat" texture="Mods/Zvezda Character System/ZM/Textures/headgear.png" depth="0.6" sourcerect="116,133,71,40" origin="0.5,0.5" />
+    <InventoryIcon name="Bill's Hat" texture="Mods/Zvezda Character System/ZM/Textures/billhatinventoryicon.png" sourcerect="0,0,256,256" origin="0.5,0.5" />
+    <Body width="75" height="50" density="30" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Bill's Hat" texture="Mods/Zvezda Character System/ZM/Textures/headgear.png" limb="Head" inheritlimbdepth="true" inherittexturescale="true" hidelimb="false" sourcerect="116,133,70,49" origin="0.5,1" />
+    </Wearable>
+  </Item>
+</Items>

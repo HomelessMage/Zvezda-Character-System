@@ -16,7 +16,7 @@
   headposition="2.914937"
   torsoposition="2.364121"
   backwardsmovementmultiplier="0.75"
-  movementspeed="4.356828"
+  movementspeed="2"
   cyclespeed="1.0000001"
   headangle="NaN"
   torsoangle="76"

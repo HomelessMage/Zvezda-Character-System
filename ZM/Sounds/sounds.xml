@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sounds>
+
+  <fn_footstep_pulverizer file="Mods/Zvezda Character System/ZM/Sounds/Tank/walk/tank_walk01.ogg" range="800"/>
+  <fn_footstep_pulverizer file="Mods/Zvezda Character System/ZM/Sounds/Tank/walk/tank_walk02.ogg" range="800"/>
+  <fn_footstep_pulverizer file="Mods/Zvezda Character System/ZM/Sounds/Tank/walk/tank_walk03.ogg" range="800"/>
+  <fn_footstep_pulverizer file="Mods/Zvezda Character System/ZM/Sounds/Tank/walk/tank_walk04.ogg" range="800"/>
+  <fn_footstep_pulverizer file="Mods/Zvezda Character System/ZM/Sounds/Tank/walk/tank_walk05.ogg" range="800"/>
+  <fn_footstep_pulverizer file="Mods/Zvezda Character System/ZM/Sounds/Tank/walk/tank_walk06.ogg" range="800"/>
+
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff1.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff2.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff3.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff4.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff5.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff6.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff7.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff8.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff9.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff10.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff11.ogg" range="400"/>
+  <fn_footstep_zombie file="Mods/Zvezda Character System/ZM/Sounds/NMRiH/Zombies/nmr_zomb_shared/zombie_scuff12.ogg" range="400"/>
+  
+</sounds>
