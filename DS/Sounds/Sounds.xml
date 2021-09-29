@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sounds>
+
+  <tcp_footstep_necro file="Mods/The Convergence Project/Sounds/slasher/footstep1.ogg" volume="1" range="400"/>
+  <tcp_footstep_necro file="Mods/The Convergence Project/Sounds/slasher/footstep2.ogg" volume="1" range="400"/>
+  <tcp_footstep_necro file="Mods/The Convergence Project/Sounds/slasher/footstep3.ogg" volume="1" range="400"/>
+  <tcp_footstep_necro file="Mods/The Convergence Project/Sounds/slasher/footstep4.ogg" volume="1" range="400"/>
+
+</sounds>

@@ -92,7 +92,7 @@
   </AfflictionHusk>
 
   <AfflictionHusk
-    name="Некроз"
+    name="Некротический симбиоз"
     identifier="division"
     description="Вам с трудом получается думать о чем-либо. Вам хочется начать разрывать свое тело на части."
     type="huskinfection"
@@ -158,4 +158,690 @@
     </PeriodicEffect>
     <icon texture="Mods/Zvezda Character System/DS/Content/UI/MainIconsAtlas.png" sourcerect="0,640,128,128" color="255,0,0,255" origin="0,0"/>
   </AfflictionHusk>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <AfflictionHusk
+    name="Помешательство"
+    identifier="tcp_necromorphinfectiondecider"
+    description="Ваш разум затуманен, вы слышите в голове тысячи голосов. Вам хочется удариться головой о стену, может быть, это заставит голоса замолчать."
+    type="huskinfection"
+    targets="human"
+    huskedspeciesname="Humanviolent"
+    causeofdeathdescription="Погиб от членовредительства."
+    selfcauseofdeathdescription="Вы умерли от травм, нанесенных самому себе."
+    limbspecific="false"
+    indicatorlimb="Head"
+    activationthreshold="0"
+    showiconthreshold="50"
+    CauseSpeechImpediment="false" 
+    causespeechimpediment="false"
+    canspeak="True"
+    needsair="true" 
+    sendmessages="false"
+    showinhealthscannerthreshold="1000"
+    showicontoothersthreshold="1000"    
+    karmachangeonapplied="-1"
+    maxstrength="100"
+    iconcolors="60,10,10,255;90,2,5,255;125,0,0,255">
+
+
+<Effect minstrength="0" maxstrength="49"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="0.0"
+      maxscreendistort="0.5"
+      strengthchange="0.5"
+      minchromaticaberration="0.0"
+      maxchromaticaberration="0.5"
+      minradialdistort="0.0"
+      maxradialdistort="0.5" >
+    </Effect>
+
+<Effect minstrength="50" maxstrength="79"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="0.5"
+      maxscreendistort="1.0"
+      strengthchange="1"
+      minchromaticaberration="0.5"
+      maxchromaticaberration="2.0"
+      minradialdistort="0.5"
+      maxradialdistort="1.0" >
+    <StatusEffect target="Character" delay="0.25">
+        <Affliction identifier="psychosis" amount="100" />
+     </StatusEffect>
+    </Effect>
+    
+<Effect minstrength="80" maxstrength="96"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="1.0"
+      maxscreendistort="3.0"
+      strengthchange="0.5"
+      minchromaticaberration="2.0"
+      maxchromaticaberration="12.0"
+      minradialdistort="1.0"
+      maxradialdistort="3.0" >
+    </Effect>
+<Effect minstrength="97" maxstrength="98"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="3.0"
+      maxscreendistort="3.0"
+      strengthchange="-1.0"
+      minchromaticaberration="12.0"
+      maxchromaticaberration="12.0"
+      minradialdistort="3.0"
+      maxradialdistort="3.0" >
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,639,128,130" color="125,0,0,255" origin="0,0"/>
+    <PeriodicEffect mininterval="7" maxinterval="12">
+    <StatusEffect target="Character" targetlimb="LeftArm" delay="0.1" disabledeltatime="True" stackable="false" comparison="and">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="0.5" scalemax="1.25" velocitymin="3" velocitymax="120" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="0.5" scalemax="1.25" velocitymin="3" velocitymax="120" anglemin="0" anglemax="360" />
+        <Affliction identifier="lacerations" amount="25" />
+        <Affliction identifier="bleedingnonstop" amount="25" />
+        <Affliction identifier="stun" amount="3" />
+        <RequiredItems items="divingknife" type="Equipped" />
+        <Conditional tcp_necromorphinfectiondecider="gt 80" />
+        <Conditional stun="eq 0" />
+        <Conditional lockhands="false" />
+        <Conditional CurrentSpeed="lt 1" />
+        <Conditional vitality="gt 0" />
+    </StatusEffect>
+    <StatusEffect target="Character" targetlimb="RightArm" delay="0.1" disabledeltatime="True" stackable="false" comparison="and">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="0.5" scalemax="1.25" velocitymin="3" velocitymax="120" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="0.5" scalemax="1.25" velocitymin="3" velocitymax="120" anglemin="0" anglemax="360" />
+        <Affliction identifier="lacerations" amount="25" />
+        <Affliction identifier="bleedingnonstop" amount="25" />
+        <Affliction identifier="stun" amount="3" />
+        <RequiredItems items="divingknife" type="Equipped" />
+        <Conditional tcp_necromorphinfectiondecider="gt 80" />
+        <Conditional stun="eq 0" />
+        <Conditional lockhands="false" />
+        <Conditional CurrentSpeed="lt 1" />
+        <Conditional vitality="gt 0" />
+    </StatusEffect>
+    </PeriodicEffect>
+    <PeriodicEffect mininterval="12" maxinterval="17">
+    <StatusEffect target="Character" targetlimb="Head" delay="0.9" disabledeltatime="true" checkconditionalalways="true" stackable="false" comparison="and">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="0.25" scalemax="0.75" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="0.25" scalemax="0.75" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Explosion range="15.0" structuredamage="0" itemdamage="7" force="15.0" severlimbsprobability="0.0" stun="3" smoke="false" underwaterbubbles="false" flames="false" flash="false" sparks="false" shockwave="false" >
+        <Affliction identifier="blunttrauma" amount="15" />
+        <Affliction identifier="bleeding" amount="5" />
+        <Affliction identifier="stun" amount="4" />
+        </Explosion>
+        <Affliction identifier="blunttrauma" amount="15" />
+        <Affliction identifier="bleeding" amount="5" />
+        <Affliction identifier="stun" amount="4" />
+        <Conditional stun="eq 0" />
+        <Conditional tcp_necromorphinfectiondecider="gt 50" />
+        <Conditional vitality="gt 25" />
+        <Conditional lockhands="false" />
+        <Conditional CurrentSpeed="lt 1" />
+        <SpawnItem identifier="tcp_headbashnormal" />
+    </StatusEffect>
+    <StatusEffect target="Character" targetlimb="Head" delay="0.2" disabledeltatime="true" checkconditionalalways="true" stackable="false" comparison="and">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="0.25" scalemax="0.75" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="0.25" scalemax="0.75" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Explosion range="5.0" structuredamage="0" itemdamage="7" force="75.0" severlimbsprobability="0.0" stun="0" smoke="false" underwaterbubbles="false" flames="false" flash="false" sparks="false" shockwave="false" >
+        </Explosion>
+        <sound file="Content/Items/Weapons/StunBaton1.ogg" selectionmode="random" range="500" />
+        <sound file="Content/Items/Weapons/StunBaton2.ogg" range="500" />
+        <sound file="Content/Items/Weapons/StunBaton3.ogg" range="500" />
+        <sound file="Content/Items/Weapons/StunBaton4.ogg" range="500" />
+        <Affliction identifier="blunttrauma" amount="25" />
+        <Affliction identifier="bleeding" amount="5" />
+        <Affliction identifier="stun" amount="15" />
+        <RequiredItems items="stunbaton" type="Picked" />
+        <RequiredItems items="mobilebattery" type="Picked"  />
+        <Conditional stun="eq 0" />
+        <Conditional tcp_necromorphinfectiondecider="gt 50" />
+        <Conditional vitality="gt 25" />
+        <Conditional lockhands="false" />
+        <Conditional CurrentSpeed="lt 1" />
+    </StatusEffect>
+    <StatusEffect target="Character" targetlimb="Head" delay="0.5" disabledeltatime="true" stackable="false" comparison="and">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="0.5" scalemax="1.0" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="0.5" scalemax="1.0" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Explosion range="5.0" structuredamage="0" itemdamage="5" force="25.0" severlimbsprobability="0.0" smoke="false" underwaterbubbles="false" flames="false" flash="false" sparks="false" shockwave="false"  />
+        <Conditional tcp_necromorphinfectiondecider="gt 80" />
+        <Conditional vitality="lt 20" />
+        <Conditional vitality="gt 0" />
+        <Conditional stun="eq 0" />
+        <Conditional lockhands="false" />
+        <SpawnItem identifier="tcp_headbashfatal1" />
+    </StatusEffect>
+    <StatusEffect target="Character" targetlimb="Head" delay="0.8" disabledeltatime="True" stackable="false" comparison="and">
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="0.5" scalemax="1.25" velocitymin="3" velocitymax="120" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="0.5" scalemax="1.25" velocitymin="3" velocitymax="120" anglemin="0" anglemax="360" />
+        <Explosion range="15.0" structuredamage="0" itemdamage="25" force="50.0" severlimbsprobability="0.0" smoke="false" underwaterbubbles="false" flames="false" flash="false" sparks="false" shockwave="false" >
+        <Affliction identifier="blunttrauma" strength="15" />
+        <Affliction identifier="bleeding" amount="5" />
+        <Affliction identifier="stun" amount="12" />
+        </Explosion>
+        <Affliction identifier="blunttrauma" amount="35" />
+        <Affliction identifier="bleedingnonstop" amount="50" />
+        <Affliction identifier="bloodloss" amount="5" />
+        <Affliction identifier="stun" amount="12" />
+        <Conditional tcp_necromorphinfectiondecider="gt 80" />
+        <Conditional stun="eq 0" />
+        <Conditional lockhands="false" />
+        <Conditional vitality="lt 20" />
+        <Conditional vitality="gt 0" />
+        <SpawnItem identifier="tcp_headbashfatal2" />
+    </StatusEffect>
+    <StatusEffect target="Character" targetlimb="Head" delay="0.1" disabledeltatime="True" stackable="false" comparison="and">
+        <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="0.5" scalemax="1.25" velocitymin="3" velocitymax="120" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="0.5" scalemax="1.25" velocitymin="3" velocitymax="120" anglemin="0" anglemax="360" />
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" force="150.0" stun="10" severlimbsprobability="0.0" underwaterbubble="false" smoke="false" decalsize="0.2" decal="brainsplatter" underwaterbubbles="false" flames="false" flash="false" sparks="false" shockwave="false" >
+        </Explosion>
+        <Affliction identifier="gunshotwound" amount="85" />
+        <Affliction identifier="bleedingnonstop" amount="1000" />
+        <Affliction identifier="bloodloss" amount="5" />
+        <Affliction identifier="stun" amount="12" />
+        <RequiredItems items="gun" type="Equipped" />
+        <Conditional tcp_necromorphinfectiondecider="gt 80" />
+        <Conditional stun="eq 0" />
+        <Conditional lockhands="false" />
+        <Conditional vitality="gt 0" />
+        <SpawnItem identifier="tcp_headshot" />
+    </StatusEffect>
+    </PeriodicEffect> 
+  </AfflictionHusk>
+  
+  <Affliction
+    name="Сонливость"
+    identifier="tcp_paralysistemp"
+    description="Вам действительно не хочется покидать это место... Может, вам стоит просто лечь и вздремнуть?"
+    type="paralysis"
+    limbspecific="false"
+    indicatorlimb="Torso"
+    showinhealthscannerthreshold="1000"
+    showiconthreshold="25"
+    karmachangeonapplied="-10"
+    maxstrength="100">
+    <!-- Slow the player down and paralyze in the end-->
+    <Effect minstrength="0" maxstrength="20"
+      strengthchange="-1"
+      minscreendistort="0.0"
+      maxscreendistort="0.2"
+      minscreenblur="0.0"
+      maxscreenblur="0.2">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.5"/>
+    </Effect>
+    <Effect minstrength="20" maxstrength="40"
+      strengthchange="-1"
+      minscreendistort="0.1"
+      maxscreendistort="0.3"
+      minscreenblur="0.1"
+      maxscreenblur="0.3">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.4"/>
+    </Effect>
+    <Effect minstrength="40" maxstrength="60"
+      strengthchange="-1"
+      minscreendistort="0.2"
+      maxscreendistort="0.4"
+      minscreenblur="0.2"
+      maxscreenblur="0.4">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.3"/>
+    </Effect>
+    <Effect minstrength="60" maxstrength="80"
+      strengthchange="-1"
+      minscreendistort="0.4"
+      maxscreendistort="0.6"
+      minscreenblur="0.4"
+      maxscreenblur="0.6">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.2"/>
+    </Effect>
+    <Effect minstrength="80" maxstrength="99"
+      strengthchange="-1"
+      minscreendistort="0.6"
+      maxscreendistort="0.8"
+      minscreenblur="0.6"
+      maxscreenblur="0.8">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.1"/>
+    </Effect>
+    <Effect minstrength="99" maxstrength="100"
+      strengthchange="-0.01"
+      minscreendistort="0.8"
+      maxscreendistort="1.0"
+      minscreenblur="0.8"
+      maxscreenblur="1.0">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0"/>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="0,255,0,255" origin="0,0"/>
+  </Affliction>
+
+  <Affliction
+    name="Психотический срыв"
+    identifier="tcp_markerpsychosis"
+    description="У пациента проявляются симптомы тяжелого психоза и возможные суицидальные наклонности."
+    type="psychosis"
+    limbspecific="false"
+    maxstrength="100"
+    indicatorlimb="Head"
+    showiconthreshold="1000"
+    showicontoothersthreshold="50"
+    karmachangeonapplied="-0.1">
+
+    <Effect minstrength="0" maxstrength="50" strengthchange="-1.0" minchromaticaberration="0" maxchromaticaberration="10">
+    <!--Stage 1, minor effects, no infection yet-->
+      <StatusEffect target="Character" SpeedMultiplier="0.9" setvalue="true">
+        <Conditional speciesname="eq human" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="1.2" comparison="or" setvalue="true">
+        <Conditional speciesname="eq humanslasher1" />
+        <Conditional speciesname="eq humanslasher2" />
+        <Conditional speciesname="eq humanviolent" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="50" maxstrength="75" strengthchange="-1.0" minchromaticaberration="10" maxchromaticaberration="25">
+      <StatusEffect target="Character" comparison="And">
+        <Conditional tcp_markerpsychosis="gte 50" />
+        <Conditional tcp_markerpsychosis="lt 75" />
+        <Conditional IsLocalPlayer="True" />
+        <!--<sound file="Mods/Zvezda Character System/DS/Sounds/markerthrob.ogg" volume="0.1" dontmuffle="true" loop="true"/>-->
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.7" setvalue="true">
+        <Conditional speciesname="eq human" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="1.3" comparison="or" setvalue="true">
+        <Conditional speciesname="eq humanslasher1" />
+        <Conditional speciesname="eq humanslasher2" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="75" maxstrength="100" strengthchange="-2.5" minchromaticaberration="25" maxchromaticaberration="50">
+      <StatusEffect target="Character" comparison="And">
+        <Conditional tcp_markerpsychosis="gte 75" />
+        <!--<sound file="Mods/Zvezda Character System/DS/Sounds/markerchant.ogg" dontmuffle="true" loop="true" volume="0.25" />-->
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.6" setvalue="true">
+        <Conditional speciesname="eq human" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="1.4" comparison="or" setvalue="true">
+        <Conditional speciesname="eq humanslasher1" />
+        <Conditional speciesname="eq humanslasher2" />
+      </StatusEffect>
+    </Effect>
+    <PeriodicEffect mininterval="12" maxinterval="17">
+      <!--Stage 3, the most severe infection gained-->
+      <StatusEffect target="Character" comparison="and" delay="10">
+        <Conditional tcp_markerpsychosis="gte 75" />
+        <Conditional ishuman="true" />
+        <Affliction identifier="tcp_necromorphinfectiondecider" strength="2.5" />
+      </StatusEffect>
+      <StatusEffect target="Character" delay="7">
+        <Conditional tcp_markerpsychosis="gte 75" />
+        <Conditional speciesname="eq human" />
+        <Affliction identifier="psychosis" strength="30"/>
+      </StatusEffect>
+      <!--Stage 2, mildly severe infection gained along with psychological effects-->
+      <StatusEffect target="Character" comparison="and" delay="17">
+        <Conditional tcp_markerpsychosis="lt 75" />
+        <Conditional ishuman="true" />
+        <Affliction identifier="tcp_necromorphinfectiondecider" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect target="Character" delay="7">
+        <Conditional tcp_markerpsychosis="lt 75" />
+        <Conditional speciesname="eq human" />
+        <Affliction identifier="psychosis" strength="25"/>
+      </StatusEffect>
+    </PeriodicEffect> 
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,640,128,128" color="150,26,26,255" origin="0,0"/>
+  </Affliction>
+
+  <Affliction
+    name="Излучение Казакова-Дубровина"
+    identifier="tcp_markerkillcheck"
+    description="Вы не можете ясно формировать мысли, что-то вам мешает."
+    type="markersignal"
+    limbspecific="false"
+    indicatorlimb="Head"
+    activationthreshold="0"
+    showinhealthscannerthreshold="1000"
+    showiconthreshold="1000"
+    showicontoothersthreshold="1000"
+    maxstrength="100">
+    <Effect minstrength="0" maxstrength="100" strengthchange="-5" >
+    <StatusEffect target="Character" comparison="or" >
+        <Conditional speciesname="humanslasher1" />
+        <Conditional speciesname="humanslasher2" />
+        <Conditional speciesname="humanviolent" />
+        <ReduceAffliction identifier="psychosis" strength="5" />
+        <ReduceAffliction identifier="tcp_markerpsychosis" strength="15" />
+        <ReduceAffliction identifier="tcp_paralysistemp" strength="100" />
+        <ReduceAffliction identifier="nausea" strength="15" />
+        <ReduceAffliction identifier="watchersgaze" strength="100" />
+        <ReduceAffliction identifier="stun" strength="0.7" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="and">
+        <Conditional isdead="false" />
+        <Conditional speciesname="eq human" />
+        <Conditional tcp_necromorphinfectiondecider="gte 90" />
+        <Conditional lockhands="false" />
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/Wormloop.ogg" range="750" loop="true" />
+        <Affliction identifier="tcp_necromorphinfectiondecider" strength="1000" />
+        <Affliction identifier="tcp_markerpsychosis" strength="1000" />
+        <Affliction identifier="internaldamage" strength="0.5" />
+        <Affliction identifier="stun" strength="15" />
+        <Affliction identifier="organdamage" strength="0.5" />
+        <Affliction identifier="lacerations" strength="0.5" />
+        <Affliction identifier="bloodloss" strength="0.5" />
+        <Affliction identifier="bleeding" strength="0.5" />
+      </StatusEffect>
+    </Effect>
+    <PeriodicEffect mininterval="1" maxinterval="2">
+      <StatusEffect target="Character" comparison="And">
+        <Conditional tcp_paralysistemp="gte 99" />
+        <Affliction identifier="tcp_necromorphinfectiondecider" strength="1" />
+        <Conditional speciesname="eq human" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="And">
+        <Conditional health="lt -2" />
+        <Affliction identifier="tcp_markerpickupconvergence" strength="15" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="or">
+        <Conditional speciesname="humanslasher1" />
+        <Conditional speciesname="humanslasher2" />
+        <ReduceAffliction identifier="damage" strength="15" />
+        <ReduceAffliction identifier="bleeding" strength="15" />
+        <ReduceAffliction identifier="bloodloss" strength="15" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,640,128,128" color="60,107,195,255" origin="0,0"/>
+  </Affliction>
+
+  <Affliction
+    name="Инцидент Казакова-Дубровина"
+    identifier="tcp_markerpickupconvergence"
+    description=""
+    type="nausea"
+    causeofdeathdescription="Погиб при невыясненных обстоятельствах."
+    selfcauseofdeathdescription="Вы погибли при невыясненных обстоятельствах."
+    limbspecific="false"
+    maxstrength="100"
+    karmachangeonapplied="-0.1"
+    damageoverlayalpha="1">
+
+    <Effect minstrength="0" maxstrength="100" strengthchange="-1.0">
+      <StatusEffect target="Character" comparison="and" SpeedMultiplier="0" delay="0.5" disabledeltatime="false">
+        <Conditional ishuman="true" />
+        <Conditional tcp_necromorphinfectiondecider="gt 0" />
+        <Conditional tcp_necromorphinfectiondecider="lt 75" />
+        <ReduceAffliction identifier="tcp_necromorphinfectiondecider" strength="100" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="and" SpeedMultiplier="0" delay="1.0" disabledeltatime="true">
+        <Conditional ishuman="true" />
+        <Conditional tcp_necromorphinfectiondecider="eq 0" />
+        <Affliction identifier="tcp_necromorphinfectiondecider" strength="100" />
+      </StatusEffect>
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,640,128,128" color="150,26,26,255" origin="0,0"/>
+  </Affliction>
+
+  <Affliction
+    name="Сигнал Казакова-Дубровина"
+    identifier="tcp_markerkillsignal"
+    description=""
+    type="tcp_markerkillsignal"
+    causeofdeathdescription="Отмирание мозга."
+    selfcauseofdeathdescription="Вы погибли от отмирания мозга."
+    limbspecific="false"
+    maxstrength="100"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1000"
+    karmachangeonapplied="-0.1"
+    damageoverlayalpha="1">
+
+    <Effect minstrength="0" maxstrength="100" strengthchange="100">
+      <StatusEffect target="Character" comparison="and" SpeedMultiplier="0" delay="0.5" disabledeltatime="false">
+        <Conditional ishuman="true" />
+        <Conditional health="lt 0" />
+        <Conditional tcp_necromorphinfectiondecider="gt 0" />
+        <Conditional tcp_necromorphinfectiondecider="lt 75" />
+        <ReduceAffliction identifier="tcp_necromorphinfectiondecider" strength="100" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="and" SpeedMultiplier="0" delay="1.0" disabledeltatime="true">
+        <Conditional ishuman="true" />
+        <Conditional health="lt 0" />
+        <Conditional tcp_necromorphinfectiondecider="eq 0" />
+        <Affliction identifier="tcp_necromorphinfectiondecider" strength="100" />
+      </StatusEffect>
+      <StatusEffect target="NearbyCharacters" range="10000" delay="2" comparison="And" >
+        <Conditional tcp_markerkillsignal="eq 0" />
+        <Affliction identifier="tcp_markerkillsignal" strength="100" />
+      </StatusEffect>
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,640,128,128" color="150,26,26,255" origin="0,0"/>
+  </Affliction>
+
+  <Affliction
+    name="Слияние Казакова-Дубровина"
+    identifier="tcp_convergence"
+    description=""
+    type="nausea"
+    causeofdeathdescription="Погиб при невыясненных обстоятельствах."
+    selfcauseofdeathdescription="Вы погибли при невыясненных обстоятельствах."
+    limbspecific="false"
+    maxstrength="100"
+    karmachangeonapplied="-0.1"
+    damageoverlayalpha="1">
+
+    <Effect minstrength="0" maxstrength="100" strengthchange="-1.0" minvitalitydecrease="9998" maxvitalitydecrease="9999">
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,640,128,128" color="150,26,26,255" origin="0,0"/>
+  </Affliction>
+
+  <AfflictionHusk
+    name="Активность Казакова-Дубровина П1"
+    identifier="tcp_reanimateslasher1"
+    description=""
+    type="huskinfection"
+    targets="human,humanslasher1corpse,humanviolent"
+    huskedspeciesname="Humanslasher1"
+    causeofdeathdescription="Погиб при невыясненных обстоятельствах."
+    selfcauseofdeathdescription="Вы погибли при невыясненных обстоятельствах."
+    limbspecific="false"
+    indicatorlimb="Head"
+    CauseSpeechImpediment="false" 
+    needsair="true" 
+    sendmessages="false"
+    activationthreshold="0"
+    showiconthreshold="75"    
+    karmachangeonapplied="-1"
+    maxstrength="100"
+    iconcolors="60,10,10,255;90,2,5,255;125,0,0,255">
+
+<Effect minstrength="0" maxstrength="47"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      strengthchange="65">
+</Effect>
+
+<Effect minstrength="48" maxstrength="98"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      strengthchange="65"
+      minchromaticaberration="1.0"
+      maxchromaticaberration="7.0" >
+    </Effect>
+
+<Effect minstrength="99" maxstrength="100"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="0.0"
+      maxscreendistort="3.0"
+      strengthchange="65"
+      minchromaticaberration="5.0"
+      maxchromaticaberration="10.0"
+      minradialdistort="0.0"
+      maxradialdistort="10.0" >
+      <StatusEffect target="Character" SpeedMultiplier="0.0" >
+        <ParticleEmitter particle="blackblood" particlespersecond="50" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blood" particlespersecond="50" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Affliction identifier="bloodloss" amount="5" />
+        <Affliction identifier="bleeding" amount="5" />
+        <Affliction identifier="organdamage" amount="5" />
+      </StatusEffect>
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,639,128,130" color="125,0,0,255" origin="0,0"/>
+  </AfflictionHusk>
+
+  <AfflictionHusk
+    name="Активность Казакова-Дубровина П2"
+    identifier="tcp_reanimateslasher2"
+    description=""
+    type="huskinfection"
+    targets="human,humanslasher2corpse,humanviolent"
+    huskedspeciesname="Humanslasher2"
+    causeofdeathdescription="Погиб при невыясненных обстоятельствах."
+    selfcauseofdeathdescription="Вы погибли при невыясненных обстоятельствах."
+    limbspecific="false"
+    indicatorlimb="Head"
+    CauseSpeechImpediment="false" 
+    needsair="true" 
+    sendmessages="false"
+    activationthreshold="0"
+    showiconthreshold="75"    
+    karmachangeonapplied="-1"
+    maxstrength="100"
+    iconcolors="60,10,10,255;90,2,5,255;125,0,0,255">
+
+<Effect minstrength="0" maxstrength="47"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      strengthchange="65">
+</Effect>
+
+<Effect minstrength="48" maxstrength="98"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      strengthchange="65"
+      minchromaticaberration="1.0"
+      maxchromaticaberration="7.0" >
+    </Effect>
+
+<Effect minstrength="99" maxstrength="100"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="0.0"
+      maxscreendistort="3.0"
+      strengthchange="65"
+      minchromaticaberration="5.0"
+      maxchromaticaberration="10.0"
+      minradialdistort="0.0"
+      maxradialdistort="10.0" >
+      <StatusEffect target="Character" SpeedMultiplier="0.0" >
+        <ParticleEmitter particle="blackblood" particlespersecond="50" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blood" particlespersecond="50" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Affliction identifier="bloodloss" amount="5" />
+        <Affliction identifier="bleeding" amount="5" />
+        <Affliction identifier="organdamage" amount="5" />
+      </StatusEffect>
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,639,128,130" color="125,0,0,255" origin="0,0"/>
+  </AfflictionHusk>
+
+  <AfflictionHusk
+    name="Активность Казакова-Дубровина П3"
+    identifier="tcp_reanimateslasher3"
+    description=""
+    type="huskinfection"
+    targets="human,humanviolent"
+    huskedspeciesname="Tcpinfector"
+    causeofdeathdescription="Погиб при невыясненных обстоятельствах."
+    selfcauseofdeathdescription="Вы погибли при невыясненных обстоятельствах."
+    limbspecific="false"
+    indicatorlimb="Head"
+    CauseSpeechImpediment="false" 
+    needsair="true" 
+    sendmessages="false"
+    activationthreshold="0"
+    showiconthreshold="75"    
+    karmachangeonapplied="-1"
+    maxstrength="100"
+    iconcolors="60,10,10,255;90,2,5,255;125,0,0,255">
+
+<Effect minstrength="0" maxstrength="47"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      strengthchange="65">
+</Effect>
+
+<Effect minstrength="48" maxstrength="98"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      strengthchange="65"
+      minchromaticaberration="1.0"
+      maxchromaticaberration="7.0" >
+    </Effect>
+
+<Effect minstrength="99" maxstrength="100"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="0.0"
+      maxscreendistort="3.0"
+      strengthchange="65"
+      minchromaticaberration="5.0"
+      maxchromaticaberration="10.0"
+      minradialdistort="0.0"
+      maxradialdistort="10.0" >
+      <StatusEffect target="Character" SpeedMultiplier="0.0" >
+        <ParticleEmitter particle="blackblood" particlespersecond="50" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blood" particlespersecond="50" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <Affliction identifier="bloodloss" amount="5" />
+        <Affliction identifier="bleeding" amount="5" />
+        <Affliction identifier="organdamage" amount="5" />
+      </StatusEffect>
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,639,128,130" color="125,0,0,255" origin="0,0"/>
+  </AfflictionHusk>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </Afflictions>

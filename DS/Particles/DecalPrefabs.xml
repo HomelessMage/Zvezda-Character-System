@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<prefabs>
+  <brainsplatter color="1.0, 1.0, 1.0, 1.0" lifetime="6000" fadeouttime="20">
+    <sprite name="brain splatter 1" texture="Mods/Zvezda Character System/DS/Particles/brainsplatter.png" scale="0.5" sourcerect="0,0,512,512" />
+  </brainsplatter>
+</prefabs>

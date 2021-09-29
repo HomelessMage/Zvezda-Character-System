@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+
+  <Affliction
+    name="Паранойя"
+    identifier="tp106"
+    description="У пациента проявляются симптомы тяжелой паранойи."
+    type="poison"
+    causeofdeathdescription="Погиб при невыясненных обстоятельствах."
+    selfcauseofdeathdescription="Вы погибли при невыясненных обстоятельствах."
+    limbspecific="false"
+    indicatorlimb="Head"
+    showiconthreshold="0"
+    karmachangeonapplied="-6"
+    maxstrength="100">
+    <Effect minstrength="0" maxstrength="99" strengthchange="15"/>
+
+    <Effect minstrength="99" maxstrength="101" strengthchange="-90000">
+      <StatusEffect target="Character" delay="5.0">
+			  <SpawnItem identifier="spawn106" SpawnPositon="This" Spread="15" />
+      </StatusEffect>
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,639,128,130" color="125,0,0,255" origin="0,0"/>
+  </Affliction>
+
+  <Affliction
+    name="Коррозия"
+    identifier="attack106"
+    description="На теле пациента присутствует черная слизь которая поглощает плоть."
+    type="poison"
+    causeofdeathdescription="Погиб при невыясненных обстоятельствах."
+    selfcauseofdeathdescription="Вы погибли при невыясненных обстоятельствах."
+    limbspecific="False"
+    indicatorlimb="Head"
+    showiconthreshold="0"
+    karmachangeonapplied="-6"
+    maxstrength="100">
+    <Effect minstrength="0" maxstrength="99" strengthchange="0"/>
+      <StatusEffect target="Character" tags="scp106corrosion">
+      </StatusEffect>
+
+    <Effect minstrength="99" maxstrength="101" strengthchange="50" minvitalitydecrease="3000" maxvitalitydecrease="3001">
+      <StatusEffect target="Character" delay="0.1">
+        <RemoveCharacter />
+      </StatusEffect>
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,639,128,130" color="125,0,0,255" origin="0,0"/>
+  </Affliction>
+
+  <AfflictionHusk
+    name="Звон Державина"
+    identifier="larrycontain"
+    description=""
+    type="huskinfection"
+    targets="scp106,scp106relentless"
+    huskedspeciesname="scp106"
+    causeofdeathdescription="Погиб при невыясненных обстоятельствах."
+    selfcauseofdeathdescription="Вы погибли при невыясненных обстоятельствах."
+    limbspecific="false"
+    indicatorlimb="Head"
+    activationthreshold="0"
+    showiconthreshold="50"    
+    karmachangeonapplied="-1"
+    maxstrength="100"
+    iconcolors="60,10,10,255;90,2,5,255;125,0,0,255">
+
+<Effect minstrength="0" maxstrength="39"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="0.02"
+      maxscreendistort="2.0"
+      strengthchange="250">
+      <StatusEffect target="Character" SpeedMultiplier="0.6" setvalue="true"/>
+</Effect>
+
+<Effect minstrength="40" maxstrength="79"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      strengthchange="250"
+      minchromaticaberration="1.0"
+      maxchromaticaberration="7.0" >
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true"/>
+    </Effect>
+
+<Effect minstrength="98" maxstrength="100"
+      minvitalitydecrease="0"
+      maxvitalitydecrease="0"
+      minscreendistort="0.0"
+      maxscreendistort="3.0"
+      strengthchange="250"
+      minchromaticaberration="5.0"
+      maxchromaticaberration="10.0"
+      minradialdistort="0.0"
+      maxradialdistort="10.0" >
+    <StatusEffect target="Character" delay="0.3">
+      <SpawnItem identifier="despawn106" spawnposition="This" />
+      <Remove />
+    </StatusEffect>
+	  <StatusEffect target="Character" SpeedMultiplier="0.6" setvalue="true" delay="0.4" checkconditionalalways="true" stackable="false" comparison="and">
+      <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+      <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="3" scalemax="3" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+      <RemoveCharacter/>
+    </StatusEffect>
+    </Effect>
+
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,639,128,130" color="125,0,0,255" origin="0,0"/>
+  </AfflictionHusk>
+
+</Afflictions>

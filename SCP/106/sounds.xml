@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sounds>
+
+  <larry_footstep_all file="Mods/Zvezda Character System/SCP/106/Characters/Scp106/StepPD1.ogg" range="400"/>
+  <larry_footstep_all file="Mods/Zvezda Character System/SCP/106/Characters/Scp106/StepPD2.ogg" range="400"/>
+  <larry_footstep_all file="Mods/Zvezda Character System/SCP/106/Characters/Scp106/StepPD3.ogg" range="400"/>
+
+</sounds>

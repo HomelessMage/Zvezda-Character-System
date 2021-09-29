@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <Item name="Некротические яйца" identifier="necroticeggs" category="Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.3">
+  <Item name="Сыворотка Казакова-Дубровина" identifier="necroticeggs" category="Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.3">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.0"/>
     <PreferredContainer primary="locker"/>
     <!-- TODO: adjust prices -->
@@ -45,7 +45,7 @@
     </Projectile>
   </Item>
 
-  <Item name="Некротическая кровь" identifier="necroblood" category="Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.3">
+  <Item name="Препарат Казакова-Дубровина" identifier="necroblood" category="Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.3">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
     <PreferredContainer primary="locker"/>
     <!-- TODO: adjust prices -->

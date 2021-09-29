@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Раствор Казакова-Дубровина" identifier="tcp_markerjuice" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="Небольшая ампула с сероватой жидкостью внутри." useinhealthinterface="true" scale="0.5">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,771,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="1,128,30,58" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="70" density="20" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="Character">
+        <Affliction identifier="tcp_markerpsychosis" amount="1000" />
+        <Affliction identifier="tcp_markerkillcheck" strength="1000" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="0.5" stackable="false" >
+        <Conditional tcp_markerpsychosis="gt 75" />
+        <ReduceAffliction identifier="tcp_necromorphinfectiondecider" amount="400" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="0.5" stackable="false" >
+        <Conditional tcp_markerpsychosis="gt 75" />
+        <Affliction identifier="tcp_necromorphinfectiondecider" amount="400" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <Item name="Объект «Маркер-1»" identifier="tcp_blackmarker" category="Alien" Tags="alien,alienartifact" sonarsize="2000" spritecolor="200,200,200,255" scale="0.25" impactsoundtag="impact_metal_heavy">
+    <Upgrade gameversion="0.9.3.1" scale="0.5" />
+    <Price baseprice="100000" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="0.85" sold="false" />
+      <Price locationtype="city" multiplier="0.85" sold="false" />
+      <Price locationtype="research" multiplier="1.3" sold="false" />
+      <Price locationtype="military" multiplier="1.25" sold="false" />
+      <Price locationtype="mine" multiplier="1" sold="false" />
+    </Price>
+    <PreferredContainer primary="wrecksecurearmcab,wreckshuttlecrate" minamount="0" maxamount="1" spawnprobability="0.05" />
+    <Sprite texture="Mods/Zvezda Character System/DS/Textures/BlackMarker.png" depth="0.6" sourcerect="0,0,340,1036" origin="0.49833673,1.0000001" />
+    <Deconstruct time="30">
+      <Item identifier="steel" />
+      <Item identifier="tcp_markerjuice" />
+      <Item identifier="tcp_markerjuice" />
+      <Item identifier="tcp_markerjuice" />
+      <Item identifier="tcp_markerjuice" />
+      <Item identifier="physicorium" />
+      <Item identifier="dementonite" />
+      <Item identifier="physicorium" />
+      <Item identifier="dementonite" />
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Body radius="45" density="50" friction="0.95" />
+    <Holdable slots="RightHand+LeftHand" holdpos="30,-15" handle1="0,10" handle2="0,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnContained" target="Character, This">
+        <Affliction identifier="tcp_markerpsychosis" strength="15" />
+        <Affliction identifier="opiateaddiction" strength="5" />
+        <Conditional condition="gt 0" targetself="True" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="Character">
+        <Affliction identifier="tcp_markerpickupconvergence" strength="15" />
+        <Affliction identifier="opiateoverdose" strength="5" />
+        <Affliction identifier="stun" strength="100" />
+        <Affliction identifier="bloodloss" strength="5" />
+        <Conditional condition="eq 0" targetself="True" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="10000">
+        <Affliction identifier="watchersgaze" strength="0.5" />
+        <Affliction identifier="drunk" strength="0.5" />
+        <Affliction identifier="opiateaddiction" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="5000">
+        <Affliction identifier="tcp_markerpsychosis" strength="0.5" />
+        <Affliction identifier="tcp_markerkillcheck" strength="15" />
+        <Affliction identifier="opiateaddiction" strength="1" />
+        <Conditional condition="gt 0" targetself="True" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="2500">
+        <Affliction identifier="tcp_markerpsychosis" strength="2" />
+        <Conditional condition="gt 0" targetself="True" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="750">
+        <Affliction identifier="tcp_markerpsychosis" strength="20" />
+        <Affliction identifier="tcp_paralysistemp" strength="15" />
+        <Affliction identifier="opiateaddiction" strength="3" />
+        <Conditional condition="gt 0" targetself="True" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="335">
+        <Affliction identifier="tcp_markerpsychosis" strength="10" />
+        <Affliction identifier="psychosis" strength="100" />
+        <Affliction identifier="tcp_paralysistemp" strength="5" />
+        <Affliction identifier="opiateaddiction" strength="2.5" />
+        <Conditional condition="gt 0" targetself="True" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="125">
+        <Affliction identifier="tcp_markerpsychosis" strength="30" />
+        <Affliction identifier="psychosis" strength="25" />
+        <Affliction identifier="tcp_paralysistemp" strength="15" />
+        <Affliction identifier="opiateaddiction" strength="12" />
+        <Conditional condition="gt 0" targetself="True" />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Объект «Маркер-2»" identifier="tcp_redmarker" category="Alien" Tags="alien,alienartifact" sonarsize="750" spritecolor="200,200,200,255" scale="0.25" impactsoundtag="impact_metal_heavy">
+    <Upgrade gameversion="0.9.3.1" scale="0.5" />
+    <Price baseprice="10000" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="0.85" sold="false" />
+      <Price locationtype="city" multiplier="0.85" sold="false" />
+      <Price locationtype="research" multiplier="1.3" sold="false" />
+      <Price locationtype="military" multiplier="1.25" sold="false" />
+      <Price locationtype="mine" multiplier="1" sold="false" />
+    </Price>
+    <PreferredContainer primary="wrecksecurearmcab,wreckshuttlecrate" minamount="0" maxamount="1" spawnprobability="0.05" />
+    <Sprite texture="Mods/Zvezda Character System/DS/Textures/RedMarker.png" depth="0.6" sourcerect="0,0,340,1036" origin="0.50330305,1" />
+    <Deconstruct time="30">
+      <Item identifier="steel" />
+      <Item identifier="tcp_markerjuice" />
+      <Item identifier="tcp_markerjuice" />
+      <Item identifier="physicorium" />
+      <Item identifier="dementonite" />
+    </Deconstruct>
+    <Body radius="45" density="50" friction="0.95" />
+    <Holdable slots="RightHand+LeftHand" holdpos="30,-15" handle1="0,10" handle2="0,-10" msg="ItemMsgPickUpSelect">
+      <!--<StatusEffect type="Always" setvalue="false" condition="5">
+      </StatusEffect>
+      <StatusEffect type="OnBroken" comparison="and" checkconditionalalways="True">
+        <sound file="Mods/Zvezda Character System/DS/Sounds/convergence1.ogg" range="9999.0" dontmuffle="true" volume="2" selectionmode="All" />
+        <sound file="Mods/Zvezda Character System/DS/Sounds/Dead Space Marker Sound Effect.ogg" range="9999.0" loop="true" volume="0.25" selectionmode="All" />
+        <sound file="Mods/Zvezda Character System/DS/Sounds/Dead Space 23 - Marker Throb Sound Effect.ogg" range="9999.0" dontmuffle="true" volume="0.50" loop="true" selectionmode="All" />
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" delay="106" duration="16">
+        <sound file="Mods/Zvezda Character System/DS/Sounds/convergence2.ogg" range="50000.0" dontmuffle="true" volume="2" selectionmode="All" />
+        <Explosion range="9999" force="-58" stun="15" flash="true" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="50" underwaterbubble="false" structuredamage="0" itemdamage="0" flashrange="9999" flashduration="16"></Explosion>
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters, This" delay="2.5" range="500" stackable="false">
+        <Affliction identifier="tcp_convergence" strength="20" />
+        <RemoveCharacter />
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" delay="122.5" duration="16">
+        <sound file="Mods/Zvezda Character System/DS/Sounds/convergence2.ogg" range="50000.0" dontmuffle="true" volume="2" selectionmode="All" />
+        <Explosion range="9999" force="58" stun="15" flash="true" shockwave="false" sparks="false" flames="false" smoke="false" camerashake="50" underwaterbubble="false" structuredamage="0" itemdamage="0" flashrange="9999" flashduration="16"></Explosion>
+        <Conditional condition="eq 0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" condition="-3000.0" range="9999" target="NearbyItems" delay="122.5" stackable="false" checkconditionalalways="True" ></StatusEffect>
+      <StatusEffect type="OnBroken" target="This" delay="124.5" stackable="false" setvalue="True" condition="100" /> 
+      <StatusEffect type="OnContained" target="Character, This" >
+        <Affliction identifier="tcp_markerpickupconvergence" strength="15" />
+        <Affliction identifier="drunk" strength="5" />
+        <Affliction identifier="opiateoverdose" strength="5" />
+        <Affliction identifier="stun" strength="100" />
+        <Affliction identifier="bloodloss" strength="5" />
+        <Conditional condition="eq 0" />
+      </StatusEffect> -->
+      <StatusEffect type="OnContained" target="Character">
+        <Affliction identifier="tcp_markerpickupconvergence" strength="15" />
+        <Affliction identifier="tcp_markerpsychosis" strength="15" />
+        <Affliction identifier="opiateaddiction" strength="5" />
+        <Affliction identifier="tcp_markerkillcheck" strength="10" />
+        <!--<Conditional condition="gt 0" targetself="True" />-->
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="5000">
+        <Affliction identifier="watchersgaze" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="2500">
+        <Affliction identifier="tcp_markerpsychosis" strength="1.5" />
+        <Affliction identifier="watchersgaze" strength="1" />
+        <Affliction identifier="tcp_markerkillcheck" strength="15" />
+        <Affliction identifier="tcp_markerkillsignal" strength="15" />
+        <Conditional condition="gt 0" targetself="True" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="325">
+        <Affliction identifier="tcp_markerpsychosis" strength="2" />
+        <Affliction identifier="watchersgaze" strength="100" />
+        <Affliction identifier="psychosis" strength="100" />
+        <Affliction identifier="tcp_paralysistemp" strength="12.5" />
+        <Affliction identifier="opiateaddiction" strength="2.5" />
+        <Conditional condition="gt 0" targetself="True" />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!--BIG THANKS TO HUSKMOD FOR THIS-->
+  <Item name="headbashnormal" identifier="tcp_headbashnormal" Scale="1" tags="" sonarsize="0" hideinmenus="true" impacttolerance="0.001" health="0.1">
+    <Body radius="100" density="10" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <ItemComponent>
+      <!-- reduce condition to remove the emitter shortly after spawning it -->
+      <StatusEffect type="Always" target="This" condition="-1" />
+      <!-- oof ouch my skull -->
+      <StatusEffect type="OnBroken" target="This">
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/WoodBat-1.ogg" range="750" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/WoodBat-2.ogg" range="750" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/WoodBat-3.ogg" range="750" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/WoodBat-4.ogg" range="750" selectionmode="Random" />
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/WoodBat-5.ogg" range="750" selectionmode="Random" />
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="headshot" identifier="tcp_headshot" Scale="1" tags="" sonarsize="0" hideinmenus="true" impacttolerance="0.001" health="0.1">
+    <Body radius="100" density="10" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <ItemComponent>
+      <!-- reduce condition to remove the emitter shortly after spawning it -->
+      <StatusEffect type="Always" target="This" condition="-1" />
+      <!-- oof ouch my brains are on the wall -->
+      <StatusEffect type="OnBroken" target="This">
+        <Sound file="Content/Items/Weapons/Revolver1.ogg" range="1500" selectionmode="Random" />
+        <Sound file="Content/Items/Weapons/Revolver2.ogg" range="1500" selectionmode="Random" />
+        <Sound file="Content/Items/Weapons/Revolver3.ogg" range="1500" selectionmode="Random" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" delay="0.15">
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/HammerSkullPenetrate.ogg" range="750" volume="0.5" />
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="headbashfatal1" identifier="tcp_headbashfatal1" Scale="1" tags="" sonarsize="0" hideinmenus="true" impacttolerance="0.001" health="0.1">
+    <Body radius="100" density="10" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <ItemComponent>
+      <!-- reduce condition to remove the emitter shortly after spawning it -->
+      <StatusEffect type="Always" target="This" condition="-1" />
+      <!-- ow fuck i broke open my skull, i don't think i am meant to see my own brains -->
+      <StatusEffect type="OnBroken" target="This">
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/BodyHit-6.ogg" range="1500" />
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="headbashfatal2" identifier="tcp_headbashfatal2" Scale="1" tags="" sonarsize="0" hideinmenus="true" impacttolerance="0.001" health="0.1">
+    <Body radius="100" density="10" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <ItemComponent>
+      <!-- reduce condition to remove the emitter shortly after spawning it -->
+      <StatusEffect type="Always" target="This" condition="-1" />
+      <!-- ow fuck i broke open my skull, i don't think i am meant to see my own brains -->
+      <StatusEffect type="OnBroken" target="This">
+        <Sound file="Mods/Zvezda Character System/DS/Sounds/HammerSkullPenetrate.ogg" range="1500" />
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+</Items>
