@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Zvezda Character System" path="Mods/Zvezda Character System/filelist.xml" corepackage="false" gameversion="0.14.9.1" steamworkshopid="2582164490" installtime="1632941230">
+<contentpackage name="Zvezda Character System" path="Mods/Zvezda Character System/filelist.xml" corepackage="false" gameversion="0.14.9.1" steamworkshopid="2582164490" installtime="1632943452">
   <UIStyle file="Mods/Zvezda Character System/Menu/UI/bw_style.xml" />
   <None file="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" />
   <None file="Mods/Zvezda Character System/Menu/bw Main Menu Music.ogg" />
@@ -723,4 +723,21 @@
   <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher1corpse/Animations/Humanslasher1corpseWalk.xml" />
   <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher1corpse/Ragdolls/Humanslasher1corpseDefaultRagdoll.xml" />
   <None file="Mods/Zvezda Character System/DS/Characters/Tcpinfector/Ragdolls/TcpinfectorDefaultRagdoll.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanviolent/Tcpappendage.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher2corpse/Animations/Humanslasher2corpseSwimSlow.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher2corpse/Animations/Humanslasher2corpseWalk.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher2corpse/Ragdolls/Humanslasher2corpseDefaultRagdoll.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanviolent/Animations/HumanviolentRun.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanviolent/Animations/HumanviolentSwimFast.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanviolent/Animations/HumanviolentSwimSlow.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanviolent/Animations/HumanviolentWalk.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher1/Animations/Humanslasher1Run.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher1/Animations/Humanslasher1SwimFast.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher1/Animations/Humanslasher1SwimSlow.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher1/Animations/Humanslasher1Walk.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Humanslasher1/Heads/eyes_slasher.pdn" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Tcpinfector/Animations/TcpinfectorWalk.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Tcpinfector/Animations/TcpinfectorSwimSlow.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Tcpinfector/Animations/TcpinfectorSwimFast.xml" />
+  <None file="Mods/Zvezda Character System/DS/Characters/Tcpinfector/Animations/TcpinfectorRun.xml" />
 </contentpackage>
