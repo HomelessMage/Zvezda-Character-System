@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Zvezda Character System" path="Mods/Zvezda Character System/filelist.xml" corepackage="false" gameversion="0.14.9.1" steamworkshopid="2582164490" installtime="1632943452">
+<contentpackage name="Zvezda Character System" path="Mods/Zvezda Character System/filelist.xml" corepackage="false" gameversion="0.14.9.1" steamworkshopid="2582164490" installtime="1633027331">
   <UIStyle file="Mods/Zvezda Character System/Menu/UI/bw_style.xml" />
   <None file="Mods/Zvezda Character System/Menu/bwMrKittyMenu.png" />
   <None file="Mods/Zvezda Character System/Menu/bw Main Menu Music.ogg" />
@@ -20,8 +20,6 @@
   <Missions file="Mods/Zvezda Character System/ITA/Content/ita_missions.xml" />
   <LevelGenerationParameters file="Mods/Zvezda Character System/ITA/Content/Map/ita_biomes_coldcaverns.xml" />
   <Particles file="Mods/Zvezda Character System/ITA/Content/ita_particles.xml" />
-  <RuinConfig file="Mods/Zvezda Character System/ITA/Content/Map/ita_ruinconfig1.xml" />
-  <WreckAIConfig file="Mods/Zvezda Character System/ITA/Content/Map/ita_thalamusai.xml" />
   <Decals file="Mods/Zvezda Character System/ITA/Content/ita_decals.xml" />
   <MapGenerationParameters file="Mods/Zvezda Character System/ITA/Content/Map/ita_mapgenerationparameters.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Map/CaveNames.txt" />
@@ -120,18 +118,6 @@
   <OutpostModule file="Mods/Zvezda Character System/ITA/Content/Subs/ita_outpost_hab_engineering.sub" />
   <OutpostModule file="Mods/Zvezda Character System/ITA/Content/Subs/ita_outpost_hab_office.sub" />
   <OutpostModule file="Mods/Zvezda Character System/ITA/Content/Subs/ita_outpost_hab_crewquarters2.sub" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAPuzzle1a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAPuzzle1b.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAPuzzle3a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAShaft1a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAShaft1b.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAShaft2a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ita_armory_blackchest4.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ita_entrance_shaftb2.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ita_entrance_shaftb3.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ita_entrance_shaftb4.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/Spawner-Crawler.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/Spawner-Crawler1.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/bubbleloop.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_fridgesound.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_impacthook.ogg" />
@@ -241,9 +227,6 @@
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_sounds_cheering1.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/fractalspawner.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_ancientcombiner.ogg" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAShaft2b.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAShaft3a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITATrap1a.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Subs/ita_cave2.sub" />
   <None file="Mods/Zvezda Character System/ITA/Content/Subs/ita_beacon_1a.sub" />
   <Character file="Mods/Zvezda Character System/Characters/Human/Human.xml" />
@@ -531,10 +514,6 @@
   <None file="Mods/Zvezda Character System/Items/Alcohol/beerI.png" />
   <None file="Mods/Zvezda Character System/Items/Alcohol/pohI.png" />
   <None file="Mods/Zvezda Character System/Characters/Nuclear Homing Shell/nuclearhomingshell_activated.png" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAAlienIndicator1.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITADoorBig1a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITACamp1a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAHatchBig1a.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_fishtailpour.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_doc1.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_decals.png" />
@@ -574,10 +553,6 @@
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_alienchests.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/AlienDoor.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/AlienHatch.png" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ita_genericb_puzzle1a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITATrap2a.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAVault1.xml" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ITAVault1a.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_canteenbowl.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_cashregister.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Subs/BeaconStation1amodded.sub" />
@@ -591,7 +566,6 @@
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_sounds_fractalspawner.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_sounds_macefire.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_sounds_maceoxygen.ogg" />
-  <None file="Mods/Zvezda Character System/ITA/Content/Assemblies/ita_entrance_shaftb1.xml" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sounds/ita_sounds_macepsycho.ogg" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_missionicon_egg2.png" />
   <None file="Mods/Zvezda Character System/ITA/Content/Sprites/ita_missionicon_fragile.png" />
