@@ -51,49 +51,40 @@
     <Holdable slots="RightHand+LeftHand" holdpos="30,-15" handle1="0,10" handle2="0,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnContained" target="Character, This">
         <Affliction identifier="tcp_markerpsychosis" strength="15" />
-        <Affliction identifier="opiateaddiction" strength="5" />
         <Conditional condition="gt 0" targetself="True" />
       </StatusEffect>
       <StatusEffect type="OnContained" target="Character">
         <Affliction identifier="tcp_markerpickupconvergence" strength="15" />
-        <Affliction identifier="opiateoverdose" strength="5" />
         <Affliction identifier="stun" strength="100" />
         <Affliction identifier="bloodloss" strength="5" />
         <Conditional condition="eq 0" targetself="True" />
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="10000">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="1000">
         <Affliction identifier="watchersgaze" strength="0.5" />
-        <Affliction identifier="drunk" strength="0.5" />
-        <Affliction identifier="opiateaddiction" strength="0.5" />
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="5000">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="200">
         <Affliction identifier="tcp_markerpsychosis" strength="0.5" />
         <Affliction identifier="tcp_markerkillcheck" strength="15" />
-        <Affliction identifier="opiateaddiction" strength="1" />
         <Conditional condition="gt 0" targetself="True" />
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="2500">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="100">
         <Affliction identifier="tcp_markerpsychosis" strength="2" />
         <Conditional condition="gt 0" targetself="True" />
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="750">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="50">
         <Affliction identifier="tcp_markerpsychosis" strength="20" />
         <Affliction identifier="tcp_paralysistemp" strength="15" />
-        <Affliction identifier="opiateaddiction" strength="3" />
         <Conditional condition="gt 0" targetself="True" />
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="335">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="25">
         <Affliction identifier="tcp_markerpsychosis" strength="10" />
-        <Affliction identifier="psychosis" strength="100" />
         <Affliction identifier="tcp_paralysistemp" strength="5" />
-        <Affliction identifier="opiateaddiction" strength="2.5" />
         <Conditional condition="gt 0" targetself="True" />
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="125">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="10" range="10">
         <Affliction identifier="tcp_markerpsychosis" strength="30" />
         <Affliction identifier="psychosis" strength="25" />
         <Affliction identifier="tcp_paralysistemp" strength="15" />
-        <Affliction identifier="opiateaddiction" strength="12" />
         <Conditional condition="gt 0" targetself="True" />
       </StatusEffect>
     </Holdable>
@@ -154,26 +145,22 @@
       <StatusEffect type="OnContained" target="Character">
         <Affliction identifier="tcp_markerpickupconvergence" strength="15" />
         <Affliction identifier="tcp_markerpsychosis" strength="15" />
-        <Affliction identifier="opiateaddiction" strength="5" />
         <Affliction identifier="tcp_markerkillcheck" strength="10" />
         <!--<Conditional condition="gt 0" targetself="True" />-->
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="5000">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="1000">
         <Affliction identifier="watchersgaze" strength="0.5" />
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="2500">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="200">
         <Affliction identifier="tcp_markerpsychosis" strength="1.5" />
         <Affliction identifier="watchersgaze" strength="1" />
         <Affliction identifier="tcp_markerkillcheck" strength="15" />
         <Affliction identifier="tcp_markerkillsignal" strength="15" />
         <Conditional condition="gt 0" targetself="True" />
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="325">
+      <StatusEffect type="Always" target="NearbyCharacters" delay="2" range="50">
         <Affliction identifier="tcp_markerpsychosis" strength="2" />
-        <Affliction identifier="watchersgaze" strength="100" />
-        <Affliction identifier="psychosis" strength="100" />
         <Affliction identifier="tcp_paralysistemp" strength="12.5" />
-        <Affliction identifier="opiateaddiction" strength="2.5" />
         <Conditional condition="gt 0" targetself="True" />
       </StatusEffect>
     </Holdable>
