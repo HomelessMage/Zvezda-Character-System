@@ -57,12 +57,12 @@
     <Limb name="Head">
       <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="1,0,126,374" highlightarea="41,0,45,54"/>
       <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="1,515,126,374"/>
-      <VitalityMultiplier type="damage" multiplier="6.5"/>
+      <VitalityMultiplier type="damage" multiplier="5.0"/>
     </Limb>
     <Limb name="Torso">
       <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,0,126,374" highlightarea="29,56,70,134"/>
       <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,515,126,374"/>
-      <VitalityMultiplier type="bleeding" multiplier="2.0"/>
+      <VitalityMultiplier type="bleeding" multiplier="3.0"/>
     </Limb>
     <Limb name="LeftArm">
       <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="379,0,126,374" highlightarea="1,69,27,140"/>
@@ -77,12 +77,12 @@
     <Limb name="LeftLeg">
       <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="505,0,126,374" highlightarea="3,180,57,194"/>
       <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="505,515,126,374"/>
-      <VitalityMultiplier type="damage" multiplier="1.5"/>
+      <VitalityMultiplier type="damage" multiplier="0.5"/>
     </Limb>
     <Limb name="RightLeg">
       <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="253,0,126,374" highlightarea="68,180,57,194"/>
       <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="253,515,126,374"/>
-      <VitalityMultiplier type="damage" multiplier="1.5"/>
+      <VitalityMultiplier type="damage" multiplier="0.5"/>
     </Limb>
   </health>
 
