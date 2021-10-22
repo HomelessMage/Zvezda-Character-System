@@ -436,6 +436,10 @@
           <Conditional hastag="hot" />
           <Affliction identifier="exposure" strength="18" />
         </StatusEffect>
+        <!--Constantly emits radiation sickness -->
+        <StatusEffect type="Always" target="NearbyCharacters" disabledeltatime="true" range="100" stackable="false">
+          <Affliction identifier="exposure" strength="1" />
+        </StatusEffect>        
         <!--Make a hot rod sizzle in water -->
         <StatusEffect type="InWater" target="This">
           <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
@@ -505,6 +509,10 @@
         <StatusEffect type="OnContained" targettype="This,Character" disabledeltatime="true" delay="1" stackable="false">
           <Conditional hastag="hot" />
           <Affliction identifier="exposure" strength="18" />
+        </StatusEffect>
+        <!--Constantly emits radiation sickness -->
+        <StatusEffect type="Always" target="NearbyCharacters" disabledeltatime="true" range="100" stackable="false">
+          <Affliction identifier="exposure" strength="1" />
         </StatusEffect>
         <!--Make a hot rod sizzle in water -->
         <StatusEffect type="InWater" target="This">
@@ -585,6 +593,10 @@
         <StatusEffect type="OnContained" targettype="This,Character" disabledeltatime="true" delay="1" stackable="false">
           <Conditional hastag="hot" />
           <Affliction identifier="exposure" strength="18" />
+        </StatusEffect>
+        <!--Constantly emits radiation sickness -->
+        <StatusEffect type="Always" target="NearbyCharacters" disabledeltatime="true" range="100" stackable="false">
+          <Affliction identifier="exposure" strength="1" />
         </StatusEffect>
         <!--Make a hot rod sizzle in water -->
         <StatusEffect type="InWater" target="This">
@@ -1027,7 +1039,7 @@
           <ParticleEmitter particle="risingbubbles" anglemin="0" anglemax="360" particlespersecond="50" velocitymin="0" velocitymax="50" scalemin="1" scalemax="6" distancemin="0" distancemax="500" />
         </StatusEffect>
         <!-- apply radiation sickness to nearby characters -->
-        <StatusEffect type="Always" target="NearbyCharacters" range="2000">
+        <StatusEffect type="Always" target="NearbyCharacters" range="2000" duration="25">
           <Affliction identifier="radiationsickness" strength="2" />
         </StatusEffect>
         <StatusEffect type="OnBroken" target="This">
@@ -2446,6 +2458,7 @@
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Character" disabledeltatime="true" ObstructVision="true" SpeedMultiplier="0.6" setvalue="true">
         <Affliction identifier="exposure" strength="-100" />
+        <Affliction identifier="radiationsickness" strength="-100" />        
       </StatusEffect>
       <ItemContainer capacity="1" hideitems="true" maxstacksize="1">
         <Containable items="oxygensource,weldingfuel" />
